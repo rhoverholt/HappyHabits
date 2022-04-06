@@ -24,6 +24,89 @@ export const ADD_USER = gql`
   }
 `;
 
+// save habit data for a logged in user
+export const UPDATE_HABIT = gql`
+  mutation updateHabit($habit: habitInput!) {
+    updateHabit(input: $habit) {
+      _id
+      username
+      email
+      savedHabits {
+        title
+        status
+        notes
+        createdDate
+        completedDate
+        savedTasks {
+          description
+          frequency
+          startDate
+          endDate
+          taskInstances {
+            dueDate
+            status
+          }
+        }
+      }
+    }
+  }
+`;
+
+// save task data for a logged in user
+export const UPDATE_TASK = gql`
+    mutation updateTask($task: taskInput!) {
+        updateTask(input: $task) {
+          _id
+          username
+          email
+          savedHabits{
+            title
+            status
+            notes
+            createdDate
+            completedDate
+            savedTasks{
+              description
+              frequency
+              startDate
+              endDate
+              taskInstances{
+                dueDate
+                status
+              }
+    
+            }
+        }
+    }
+`;
+
+// save taskinstance data for a logged in user
+export const UPDATE_TASKINSTANCE = gql`
+    mutation updateTaskInstance($taskInstance: taskInstanceInput!) {
+        updateTaskInstance(input: $taskInstance) {
+          _id
+          username
+          email
+          savedHabits{
+            title
+            status
+            notes
+            createdDate
+            completedDate
+            savedTasks{
+              description
+              frequency
+              startDate
+              endDate
+              taskInstances{
+                dueDate
+                status
+              }
+    
+            }
+        }
+    }
+`;
 
 //deletes an instance of a task
 
@@ -33,22 +116,22 @@ export const REMOVE_TASKINSTANCE = gql`
           _id
           username
           email
-          habits {
+          savedHabits{
             title
             status
             notes
             createdDate
             completedDate
-            tasks {
+            savedTasks{
               description
               frequency
               startDate
               endDate
-              taskInstances {
+              taskInstances{
                 dueDate
                 status
               }
-            }
+    
             }
         }
     }
@@ -62,28 +145,26 @@ export const REMOVE_TASK = gql`
           _id
           username
           email
-          habits {
+          savedHabits{
             title
             status
             notes
             createdDate
             completedDate
-            tasks {
+            savedTasks{
               description
               frequency
               startDate
               endDate
-              taskInstances {
+              taskInstances{
                 dueDate
                 status
               }
-            }
+    
             }
         }
     }
 `;
-
-
 
 // create habit data for a logged in user
 export const CREATE_HABIT = gql`
@@ -92,22 +173,22 @@ export const CREATE_HABIT = gql`
           _id
           username
           email
-          habits {
+          savedHabits{
             title
             status
             notes
             createdDate
             completedDate
-            tasks {
+            savedTasks{
               description
               frequency
               startDate
               endDate
-              taskInstances {
+              taskInstances{
                 dueDate
                 status
               }
-            }
+    
             }
         }
     }
@@ -120,22 +201,22 @@ export const CREATE_TASK = gql`
           _id
           username
           email
-          habits {
+          savedHabits{
             title
             status
             notes
             createdDate
             completedDate
-            tasks {
+            savedTasks{
               description
               frequency
               startDate
               endDate
-              taskInstances {
+              taskInstances{
                 dueDate
                 status
               }
-            }
+    
             }
         }
     }
@@ -148,13 +229,13 @@ export const CREATE_TASKINSTANCE = gql`
           _id
           username
           email
-          habits{
+          savedHabits{
             title
             status
             notes
             createdDate
             completedDate
-            tasks{
+            savedTasks{
               description
               frequency
               startDate
@@ -163,7 +244,7 @@ export const CREATE_TASKINSTANCE = gql`
                 dueDate
                 status
               }
-            }
+    
             }
         }
     }

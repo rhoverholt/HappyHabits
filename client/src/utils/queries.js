@@ -3,27 +3,44 @@ import { gql } from "@apollo/client";
 export const QUERY_USER = gql`
   query user($username: String!) {
     user(username: $username) {
-      _id
       username
       email
-      habits{
+      _id
+      habits {
         title
         status
         notes
         createdDate
         completedDate
-        tasks{
+        tasks {
           description
           frequency
           startDate
           endDate
-          taskInstances{
+          taskInstances {
             dueDate
             status
           }
-
         }
       }
     }
   }
 `;
+
+// habits {
+//   title
+//   status
+//   notes
+//   createdDate
+//   completedDate
+//   tasks {
+//     description
+//     frequency
+//     startDate
+//     endDate
+//     taskInstances {
+//       dueDate
+//       status
+//     }
+//   }
+// }
