@@ -6,6 +6,24 @@ export const QUERY_USER = gql`
       _id
       username
       email
+      habits{
+        title
+        status
+        notes
+        createdDate
+        completedDate
+        tasks{
+          description
+          frequency
+          startDate
+          endDate
+          taskInstances{
+            dueDate
+            status
+          }
+
+        }
+      }
     }
   }
 `;
