@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import 'client/src/components/Header/header.css'
+
 import Auth from "../../utils/auth";
 
 const Header = () => {
