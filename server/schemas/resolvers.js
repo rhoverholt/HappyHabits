@@ -32,6 +32,85 @@ const resolvers = {
 
       return { token, user };
     },
+  
+   // add a habit to a User
+  createHabit: async (parent, {input}, context) => {
+    if(context.user){
+      const updatedUser = await User.findOneAndUpdate(
+        { _id: context.user._id },
+        { $addToSet: { habits: input } },
+        { new: true, runValidators: true }
+      )
+
+      return updatedUser;
+    };
+
+    throw new AuthenticationError('You need to be logged in!');
+  },
+
+     // add a task to a habit
+     createTask: async (parent, {input}, context) => {
+      if(context.user){
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { tasks: input } },
+          { new: true, runValidators: true }
+        )
+  
+        return updatedUser;
+      };
+  
+      throw new AuthenticationError('You need to be logged in!');
+    },
+     // add a taskinstance to a task
+     createTaskInstance: async (parent, {input}, context) => {
+      if(context.user){
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { taskInstance: input } },
+          { new: true, runValidators: true }
+        )
+  
+        return updatedUser;
+      };
+  
+      throw new AuthenticationError('You need to be logged in!');
+    },
+  
+    //remove Task from habit
+    removeTask: async (parent, {taskId}, context) => {
+      if(context.user){
+      const updatedUser = await User.findOneAndUpdate(
+        { _id: context.user._id },
+        { $pull: { tasks: { taskId: taskId } } },
+        { new: true }
+      );
+  
+      return updatedUser;
+    };
+  
+    throw new AuthenticationError('You need to be logged in!');
+    },
+  
+      //remove TaskInstance from task
+      removeTaskInstance: async (parent, {taskInstanceId}, context) => {
+        if(context.user){
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { taskInstance: { taskInstanceId: taskInstanceId } } },
+          { new: true }
+        );
+    
+        return updatedUser;
+      };
+    
+      throw new AuthenticationError('You need to be logged in!');
+      },
+  
+  
+  
+  
+  
   },
 };
 

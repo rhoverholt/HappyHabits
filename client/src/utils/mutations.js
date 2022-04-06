@@ -31,13 +31,13 @@ export const UPDATE_HABIT = gql`
           _id
           username
           email
-          savedHabits{
+          habits{
             title
             status
             notes
             createdDate
             completedDate
-            savedTasks{
+            tasks{
               description
               frequency
               startDate
@@ -59,13 +59,13 @@ export const UPDATE_TASK = gql`
           _id
           username
           email
-          savedHabits{
+          habits{
             title
             status
             notes
             createdDate
             completedDate
-            savedTasks{
+            tasks{
               description
               frequency
               startDate
@@ -87,13 +87,13 @@ export const UPDATE_TASKINSTANCE = gql`
           _id
           username
           email
-          savedHabits{
+          habits{
             title
             status
             notes
             createdDate
             completedDate
-            savedTasks{
+            tasks{
               description
               frequency
               startDate
@@ -116,13 +116,13 @@ export const REMOVE_TASKINSTANCE = gql`
           _id
           username
           email
-          savedHabits{
+          habits{
             title
             status
             notes
             createdDate
             completedDate
-            savedTasks{
+            tasks{
               description
               frequency
               startDate
@@ -145,13 +145,13 @@ export const REMOVE_TASK = gql`
           _id
           username
           email
-          savedHabits{
+          habits{
             title
             status
             notes
             createdDate
             completedDate
-            savedTasks{
+            tasks{
               description
               frequency
               startDate
@@ -175,13 +175,13 @@ export const CREATE_HABIT = gql`
           _id
           username
           email
-          savedHabits{
+          habits{
             title
             status
             notes
             createdDate
             completedDate
-            savedTasks{
+            tasks{
               description
               frequency
               startDate
@@ -203,13 +203,13 @@ export const CREATE_TASK = gql`
           _id
           username
           email
-          savedHabits{
+          habits{
             title
             status
             notes
             createdDate
             completedDate
-            savedTasks{
+            tasks{
               description
               frequency
               startDate
@@ -231,13 +231,13 @@ export const CREATE_TASKINSTANCE = gql`
           _id
           username
           email
-          savedHabits{
+          habits{
             title
             status
             notes
             createdDate
             completedDate
-            savedTasks{
+            tasks{
               description
               frequency
               startDate
