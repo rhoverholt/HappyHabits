@@ -42,7 +42,7 @@ const typeDefs = gql`
     notes: String
     createdDate: String
     completedDate: String
-    tasks: [Task]
+    tasks: [taskInput]
 }
 
 input taskInput{
@@ -50,7 +50,7 @@ input taskInput{
   frequency: String
   startDate: String
   endDate: String
-  taskInstances: [TaskInstance]
+  taskInstances: [taskInstanceInput]
 }
 
 input taskInstanceInput{
