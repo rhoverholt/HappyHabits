@@ -9,30 +9,31 @@ const Header = () => {
     Auth.logout();
   };
   return (
-    <header className="bg-primary text-light mb-4 py-3 flex-row align-center">
+    <header className="container header__container">
       <div className="container flex-row justify-space-between-lg justify-center align-center">
-        <div>
+        <div> 
+          <h5>Welcome to</h5>
           <Link className="text-light" to="/">
             <h1 className="m-0">Happy Habits</h1>
           </Link>
           <p className="m-0">
-            Making the world a better place, one habit at a time
+            Little changes, big results.
           </p>
         </div>
-        <div>
+        <div className= "cta">
           {Auth.loggedIn() ? (
             <>
               <span>Hey there, {Auth.getProfile().data.username}!</span>
-              <button className="btn btn-lg btn-light m-2" onClick={logout}>
+              <button className="btn" onClick={logout}>
                 Logout
               </button>
             </>
           ) : (
             <>
-              <Link className="btn btn-lg btn-info m-2" to="/login">
+              <Link className="btn" id="loginbtn" to="/login">
                 Login
               </Link>
-              <Link className="btn btn-lg btn-light m-2" to="/signup">
+              <Link className="btn btn-primary" to="/signup">
                 Signup
               </Link>
             </>
