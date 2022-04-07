@@ -36,6 +36,29 @@ const typeDefs = gql`
     user: User
   }
 
+  input habitInput{
+    title: String
+    status: String
+    notes: String
+    createdDate: String
+    completedDate: String
+    tasks: [Task]
+}
+
+input taskInput{
+  description: String
+  frequency: String
+  startDate: String
+  endDate: String
+  taskInstances: [TaskInstance]
+}
+
+input taskInstanceInput{
+  dueDate: String
+  status: Boolean
+}
+
+
   type Query {
     users: [User]
     user(username: String!): User
@@ -44,6 +67,11 @@ const typeDefs = gql`
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
+    removeTask(taskId: ID!): User
+    removeTaskInstance(taskInstanceId: ID!): User
+    createHabit(input: habitInput): User
+    createTask(input: taskInput): User
+    createTaskInstance(input: taskInstanceInput): User
   }
 `;
 
