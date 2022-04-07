@@ -1,7 +1,6 @@
 const { Schema } = require("mongoose");
-const { taskSchema } = require("./Tasks");
 
-const taskSchema = new Schema({
+const taskInstanceSchema = new Schema({
   dueDate: {
     type: Date,
     required: true,
@@ -12,4 +11,4 @@ const taskSchema = new Schema({
   },
 });
 
-module.exports = taskSchema;
+module.exports = taskInstanceSchema;
