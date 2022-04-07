@@ -1,17 +1,15 @@
 const { Schema } = require("mongoose");
-const { taskSchema } = require("./Tasks");
+const taskSchema = require("./Tasks");
 
 const habitSchema = new Schema({
   title: {
     type: String,
     required: true,
-    unique: true,
     trim: true,
   },
   status: {
     type: String,
     required: true,
-    unique: true,
   },
   notes: {
     type: String,

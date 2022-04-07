@@ -1,4 +1,5 @@
 const { Schema, model } = require("mongoose");
+const habitSchema = require("./Habits");
 const bcrypt = require("bcrypt");
 
 const userSchema = new Schema({
@@ -19,6 +20,7 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
+  habits: [habitSchema],
 });
 
 userSchema.pre("save", async function (next) {
