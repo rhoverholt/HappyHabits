@@ -4,6 +4,7 @@ import Habit from "../components/Habit";
 
 const habits = [
   {
+    id: "134otyb1234oiuyt103",
     title: "My first habit to change",
     status: "Active",
     notes: "I'm not sure how to progress my first habit!",
@@ -20,6 +21,7 @@ const habits = [
     ],
   },
   {
+    id: "134oiutb13o4t",
     title: "My second habit to change",
     status: "Active",
     notes: "I'm not sure how to progress my first habit!",
@@ -42,9 +44,8 @@ const Dashboard = () => {
     <div>
       <h1>Habit-forming Activities:</h1>
 
-      <Habit value={habits[0]} />
-      {habits?.forEach((habit) => {
-        return <Habit value={habit} />;
+      {habits.map((habit) => {
+        return <Habit key={habit.id} value={habit} />;
       })}
     </div>
   );
