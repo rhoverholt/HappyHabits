@@ -55,7 +55,7 @@ function App() {
               <Route path="/signup" element={<Signup />} />
               <Route path="/habit/:id" element={<Habit />} />
               <Route path="/habit" element={<Habit />} />              
-              {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+              <Route path="/dashboard" element={<Dashboard />} />
             </Routes>
           </div>
           <Footer />
