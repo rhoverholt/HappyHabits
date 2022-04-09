@@ -1,3 +1,5 @@
+import './task.css'
+
 const Task = (props) => {
   //   if (!props.value) return null;
 

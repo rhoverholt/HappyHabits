@@ -1,0 +1,54 @@
+.habit-body {
+    background: var(--color-bg-variant);
+    padding: 2.4rem 5rem;
+    border-radius: 2rem;
+    border: 1px solid transparent;
+    
+    text-align: center; 
+
+}
+
+.habit-body:hover {
+    background: transparent;
+    border-color: var(--color-primary-variant);
+    cursor:default;
+}
+
+.task-card{
+    margin-top: 2rem;
+
+}
+.task-body {
+    display: grid;
+    margin-top: 1rem;
+    
+   
+  
+}
+
+.task-input {
+    display: flex;
+    gap: 2rem;
+    margin-inline: auto;
+    
+    
+
+}
+/* Look into changing this kinda funky */
+.task-title {
+    background: var(--color-bg-variant);
+    padding: 2.4rem 5rem;
+    border-radius: 2rem;
+    border: 1px solid transparent;
+
+}
+
+
+
+label {
+    font-size: 2rem;
+}
+
+.checkbox {
+    width: 2rem;
+}
