@@ -88,29 +88,29 @@ export const REMOVE_TASK = gql`
 // create habit data for a logged in user
 export const CREATE_HABIT = gql`
     mutation createHabit($habit: habitInput!) {
-        createHabit(input: $habit) {
-          _id
-          username
-          email
-          habits {
-            title
-            status
-            notes
-            createdDate
-            completedDate
-            tasks {
-              description
-              frequency
-              startDate
-              endDate
-              taskInstances {
-                dueDate
-                status
-              }
-            }
-            }
+      createHabit(input: $habit) {
+        _id
+        username
+        email
+        habits {
+          title
         }
+      }
     }
+  `;
+
+  // update habit data for a logged in user
+export const UPDATE_HABIT = gql`
+mutation createHabit($habit: habitInput!) {
+  createHabit(input: $habit) {
+    _id
+    username
+    email
+    habits {
+      title
+    }
+  }
+}
 `;
 
 // create task data for a logged in user

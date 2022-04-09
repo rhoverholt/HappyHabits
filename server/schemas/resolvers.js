@@ -47,6 +47,7 @@ const resolvers = {
 
     // add a habit to a User
     createHabit: async (parent, { input }, context) => {
+
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
@@ -59,6 +60,22 @@ const resolvers = {
 
       throw new AuthenticationError("You need to be logged in!");
     },
+
+        // update a habit to a User
+        updateHabit: async (parent, { index, input }, context) => {
+
+          if (context.user) {
+            const updatedUser = await User.findOneAndUpdate(
+              { _id: context.user._id },
+
+              { new: true, runValidators: true }
+            );
+    
+            return updatedUser;
+          }
+    
+          throw new AuthenticationError("You need to be logged in!");
+        },
 
     // add a task to a habit
     createTask: async (parent, { input }, context) => {

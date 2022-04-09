@@ -10,10 +10,10 @@ const habitSchema = new Schema({
   status: {
     type: String,
     required: true,
+    default: `In Progress`,
   },
   notes: {
     type: String,
-    required: true,
     minlength: 5,
   },
   createdDate: {
