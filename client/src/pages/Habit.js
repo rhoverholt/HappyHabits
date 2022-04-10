@@ -13,13 +13,15 @@ let { id } = useParams();
 let visibility = "btn-block btn-danger Visible btn btn-primary"
 if(!id){
     visibility = "btn-block btn-danger Hidden btn btn-primary"
+
 } 
-// const taskId = id;
+
 const [createHabit, { error, habit }] = useMutation(CREATE_HABIT);
 const [createTask, {  task }] = useMutation(CREATE_TASK);
 const [removeTask, {}] = useMutation(REMOVE_TASK);
 const [updateHabit, {}] = useMutation(UPDATE_HABIT);
 const [formState, setFormState] =  useState({habitTitle:``,
+        notes:``,
         description:``,
         frequency:``,
         startDate:``,
@@ -42,11 +44,13 @@ useEffect(() => {
         // startDate:userData.habits[id].tasks[taskId].startDate,
         // endDate: userData.habits[id].tasks[taskId].endDate} : (id && taskId==='')?
         {habitTitle:userData.habits[id].title,
+        notes:userData.habits[id].notes,
         description:``,
         frequency:``,
         startDate:``,
         endDate:``} :
             {habitTitle:``,
+            notes:``,
             description:``,
             frequency:``,
             startDate:``,
@@ -265,10 +269,29 @@ return (
                     </form>
                 </div>
  
-
-
+                <div id="notesForm" className="Visible" >
+                <form onSubmit={handleHabitFormSubmit}>
+                <input
+                  className="form-input"
+                  placeholder="notes"
+                  name="notes"
+                  type="message"
+                  value={formState.notes}
+                  onChange={handleChange}
+                />
+                <button
+                  className="btn btn-block btn-primary"
+                  style={{ cursor: 'pointer' }}
+                  type="submit"
+                >
+                  Save Entry
+                </button>
+              </form>
+              </div>
             {userData.habits[id]?.tasks.map((task) => {
             return (
+
+
               <Card key={task.taskId} border='dark'>
                 <Card.Body>
                   <Card.Title>{task.description}</Card.Title>
