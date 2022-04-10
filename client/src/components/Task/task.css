@@ -1,54 +1,61 @@
-.habit-body {
-    background: var(--color-bg-variant);
-    padding: 2.4rem 5rem;
-    border-radius: 2rem;
-    border: 1px solid transparent;
-    
-    text-align: center; 
-
+.habit-container {
+  display: flex;
+  justify-content: space-around;
+}
+.habit-card {
+  background: var(--color-bg-variant);
+  padding: 2.4rem 5rem;
+  border-radius: 2rem;
+  border: 4px solid transparent;
+  margin-left: 4rem;
+  margin-right: 4rem;
+  text-align: center;
 }
 
-.habit-body:hover {
-    background: transparent;
-    border-color: var(--color-primary-variant);
-    cursor:default;
+.habit-card:hover {
+  background: transparent;
+  border-color: var(--color-primary-variant);
+  cursor: default;
 }
 
-.task-card{
-    margin-top: 2rem;
-
+.habit-title {
+  font-size: 3rem;
+  background: var(--color-primary-variant);
+  border-radius: 2rem;
 }
+
+.task-card {
+  margin-top: 2rem;
+  /* }
+/* Look into changing this kinda funky */
+  /* .task-title { */
+  background: var(--color-bg-variant);
+  padding: 2.4rem 5rem;
+  border-radius: 2rem;
+  border: 1px solid transparent;
+}
+
+.task-title {
+  font-size: 2rem;
+}
+
 .task-body {
-    display: grid;
-    margin-top: 1rem;
-    
-   
-  
+  display: grid;
+  margin-top: 1rem;
 }
 
 .task-input {
-    display: flex;
-    gap: 2rem;
-    margin-inline: auto;
-    
-    
-
-}
-/* Look into changing this kinda funky */
-.task-title {
-    background: var(--color-bg-variant);
-    padding: 2.4rem 5rem;
-    border-radius: 2rem;
-    border: 1px solid transparent;
-
+  display: flex;
+  justify-content: space-between;
+  /* gap: 2rem; */
+  margin-inline: auto;
 }
 
-
-
-label {
-    font-size: 2rem;
+.task-label {
+  font-size: 2rem;
+  width: 3rem;
 }
 
 .checkbox {
-    width: 2rem;
+  width: 2rem;
 }
