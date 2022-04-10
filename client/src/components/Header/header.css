@@ -24,7 +24,13 @@ header {
 
 
 
+.Visible{
 
+}
+.Hidden{
+    display: none;
+    visibility: hidden;
+}
 
 /* media queries(medium devices) */
 

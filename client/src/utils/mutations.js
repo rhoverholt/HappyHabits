@@ -57,8 +57,8 @@ export const REMOVE_TASKINSTANCE = gql`
 //deletes task data
 
 export const REMOVE_TASK = gql`
-    mutation removeTask($taskId: ID!) {
-        removeTask(taskId: $taskId) {
+    mutation removeTask($index: String!, $taskId: ID!) {
+        removeTask(index: $index, taskId: $taskId) {
           _id
           username
           email
@@ -73,10 +73,6 @@ export const REMOVE_TASK = gql`
               frequency
               startDate
               endDate
-              taskInstances {
-                dueDate
-                status
-              }
             }
             }
         }
@@ -88,35 +84,35 @@ export const REMOVE_TASK = gql`
 // create habit data for a logged in user
 export const CREATE_HABIT = gql`
     mutation createHabit($habit: habitInput!) {
-        createHabit(input: $habit) {
-          _id
-          username
-          email
-          habits {
-            title
-            status
-            notes
-            createdDate
-            completedDate
-            tasks {
-              description
-              frequency
-              startDate
-              endDate
-              taskInstances {
-                dueDate
-                status
-              }
-            }
-            }
+      createHabit(input: $habit) {
+        _id
+        username
+        email
+        habits {
+          title
         }
+      }
     }
+  `;
+
+  // update habit data for a logged in user
+export const UPDATE_HABIT = gql`
+mutation updateHabit($index: String!, $habit: habitInput!) {
+  updateHabit(index:$index, input: $habit) {
+    _id
+    username
+    email
+    habits {
+      title
+    }
+  }
+}
 `;
 
 // create task data for a logged in user
 export const CREATE_TASK = gql`
-    mutation createTask($task: taskInput!) {
-        createTask(input: $task) {
+    mutation createTask($index: String!,$task: taskInput!) {
+        createTask(index:$index,input: $task) {
           _id
           username
           email
@@ -131,10 +127,6 @@ export const CREATE_TASK = gql`
               frequency
               startDate
               endDate
-              taskInstances {
-                dueDate
-                status
-              }
             }
             }
         }

@@ -122,6 +122,14 @@ img {
     object-fit: cover;
 }
 
+.Visible{
+
+}
+.Hidden{
+    display: none;
+    visibility: hidden;
+}
+
 /* media queries(medium devices) */
 
 @media screen and (max-width: 1024px) {

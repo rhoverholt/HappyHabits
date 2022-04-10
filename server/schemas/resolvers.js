@@ -45,8 +45,26 @@ const resolvers = {
       return { token, user };
     },
 
+            // update a habit to a User
+            updateHabit: async (parent, { index, input }, context) => {
+
+              if (context.user) {
+                const user = await User.findOne(
+                  { _id: context.user._id},
+                );
+                //melissa to make more logical
+                user.habits[index].title=input.title;
+                user.save();
+
+                return user;
+              }
+        
+              throw new AuthenticationError("You need to be logged in!");
+            },
+
     // add a habit to a User
     createHabit: async (parent, { input }, context) => {
+
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
@@ -60,14 +78,24 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
 
+
+
     // add a task to a habit
-    createTask: async (parent, { input }, context) => {
+    createTask: async (parent, { habitIndex, input }, context) => {
       if (context.user) {
-        const updatedUser = await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $addToSet: { tasks: input } },
-          { new: true, runValidators: true }
-        );
+      //   const updatedUser = await User.findOneAndUpdate(
+      //     { _id: context.user._id},
+      //     { $push: 
+      //       {"habits.$.tasks": input
+      //       }
+      // },
+      //     { new: true, runValidators: true }
+      //   );
+  
+        const updatedUser = await User.findOne(
+          { _id: context.user._id},);
+        updatedUser.habits[habitIndex].tasks.push(input);
+        updatedUser.save();
 
         return updatedUser;
       }
@@ -90,13 +118,18 @@ const resolvers = {
     },
 
     //remove Task from habit
-    removeTask: async (parent, { taskId }, context) => {
+    removeTask: async (parent, { index, taskId }, context) => {
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
           { $pull: { tasks: { taskId: taskId } } },
           { new: true }
         );
+        // const user = await User.findOne(
+        //   { _id: context.user._id},
+        // );
+        // user.habits[index].tasks=input.title;
+        // user.save();
 
         return updatedUser;
       }

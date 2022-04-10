@@ -10,7 +10,7 @@ const typeDefs = gql`
   }
   type Habit {
     _id: ID
-    title: String
+    title: String!
     status: String
     notes: String
     createdDate: String
@@ -37,12 +37,11 @@ const typeDefs = gql`
   }
 
   input habitInput {
-    title: String
+    title: String!
     status: String
     notes: String
     createdDate: String
     completedDate: String
-    tasks: [taskInput]
   }
 
   input taskInput {
@@ -68,10 +67,11 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     createHabit(input: habitInput): User
-    createTask(input: taskInput): User
+    createTask(index: String!, input: taskInput): User
     createTaskInstance(input: taskInstanceInput): User
-    removeTask(taskId: ID!): User
+    removeTask(index: String!, taskId: ID!): User
     removeTaskInstance(taskInstanceId: ID!): User
+    updateHabit(index: String!, input: habitInput): User
   }
 `;
 
