@@ -41,12 +41,13 @@ const habits = [
 
 const Dashboard = () => {
   return (
-    <div>
-      <h1>Habit-forming Activities:</h1>
-
-      {habits.map((habit) => {
-        return <Habit key={habit.id} value={habit} />;
-      })}
+    <div className="dashboard-container">
+      <h1 className="dashboard-title">Habit-forming Activities:</h1>
+      <div className="habit-container">
+        {habits.map((habit) => {
+          return <Habit key={habit.id} value={habit} />;
+        })}
+      </div>
     </div>
   );
 };
