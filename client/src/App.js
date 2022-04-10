@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   ApolloClient,
   InMemoryCache,
@@ -8,14 +8,15 @@ import {
 import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+// import UserProvider from "./utils/userProvider";
 import Home from "./pages/Home";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Navbar from './components/Navbar/Navbar';
-import Habit from './pages/Habit';
+import Navbar from "./components/Navbar/Navbar";
+import Habit from "./pages/Habit";
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -46,7 +47,8 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div className="flex-column justify-flex-start min-100-vh">
-        <Navbar />
+          {/* <UserProvider> */}
+          <Navbar />
           <Header />
           <div className="container">
             <Routes>
@@ -54,11 +56,12 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/habit/:id" element={<Habit />} />
-              <Route path="/habit" element={<Habit />} />              
+              <Route path="/habit" element={<Habit />} />
               <Route path="/dashboard" element={<Dashboard />} />
             </Routes>
           </div>
           <Footer />
+          {/* </UserProvider> */}
         </div>
       </Router>
     </ApolloProvider>
