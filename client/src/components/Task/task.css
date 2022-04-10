@@ -1,3 +1,7 @@
+.dashboard-title {
+  color: var(--color-primary-variant);
+}
+
 .habit-container {
   display: flex;
   justify-content: space-around;
