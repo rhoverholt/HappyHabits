@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import "./header.css";
 import Auth from "../../utils/auth";
@@ -8,6 +8,7 @@ const Header = () => {
     event.preventDefault();
     Auth.logout();
   };
+
   return (
     <header className="container header__container">
       <div className="container flex-row justify-space-between-lg justify-center align-center">
