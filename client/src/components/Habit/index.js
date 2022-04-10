@@ -1,16 +1,20 @@
 import "./habit.css";
 import Task from "../Task";
-import Form from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Habit = (props) => {
   if (!props.value) return;
   return (
     <div className="habit-card">
-      <div className="habit-title">{props.value.title}</div>
+      <div className="habit-title">
+        <Link className="habit-link" to={`/habit/${props.index}`}>
+          {props.value.title}
+        </Link>
+      </div>
       <div className="habit-body">
         {/* <Task value={props.value.tasks[0]} /> */}
         {props.value?.tasks.map((task, index) => {
-          return <Task key={index} value={task} />;
+          return <Task key={index} index={index} value={task} />;
           //   return <p>Here's a task </p>;
         })}
       </div>

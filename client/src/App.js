@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import {
   ApolloClient,
   InMemoryCache,
@@ -8,7 +8,6 @@ import {
 import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-// import UserProvider from "./utils/userProvider";
 import Home from "./pages/Home";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
@@ -47,7 +46,6 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div className="flex-column justify-flex-start min-100-vh">
-          {/* <UserProvider> */}
           <Navbar />
           <Header />
           <div className="container">
@@ -61,7 +59,6 @@ function App() {
             </Routes>
           </div>
           <Footer />
-          {/* </UserProvider> */}
         </div>
       </Router>
     </ApolloProvider>

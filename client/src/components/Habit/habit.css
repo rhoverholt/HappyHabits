@@ -1,7 +1,49 @@
-.Visible{
-
+.dashboard-title {
+  color: var(--color-primary-variant);
+  font-size: 3rem;
 }
-.Hidden{
-    display: none;
-    visibility: hidden;
+
+.habit-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.habit-card {
+  background: var(--color-bg-variant);
+  padding: 2rem 3rem;
+  border-radius: 2rem;
+  border: 4px solid transparent;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  text-align: center;
+  width: 300px;
+}
+
+.habit-card:hover {
+  background: transparent;
+  border-color: var(--color-primary-variant);
+  cursor: default;
+}
+
+.habit-title {
+  font-size: 2rem;
+  background: var(--color-primary-variant);
+  border-radius: 2rem;
+  padding: 0 2rem;
+}
+
+.habit-link {
+  color: white;
+}
+
+.habit-link:hover {
+  color: var(--color-bg-variant);
+  cursor: pointer;
+}
+
+.Visible {
+}
+.Hidden {
+  display: none;
+  visibility: hidden;
 }

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../utils/mutations";
-// import { useUser } from "../utils/userProvider";
 
 import Auth from "../utils/auth";
 
@@ -20,8 +19,6 @@ const Login = (props) => {
     });
   };
 
-  // const { setUserData } = useUser();
-
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -30,9 +27,6 @@ const Login = (props) => {
       const { data } = await login({
         variables: { ...formState },
       });
-
-      // console.log(data);
-      // setUserData(data);
 
       Auth.login(data.login.token);
     } catch (e) {

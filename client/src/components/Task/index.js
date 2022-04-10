@@ -1,4 +1,4 @@
-import './task.css'
+import "./task.css";
 
 const Task = (props) => {
   //   if (!props.value) return null;
@@ -13,7 +13,7 @@ const Task = (props) => {
               /* fancy way to create 7 checkboxes, 1 for each Day of Week (dOw) */
               ["S", "M", "Tu", "W", "Th", "F", "Sa"].map((dOw) => {
                 return (
-                  <label className="task-label">
+                  <label key={dOw} className="task-label tl-daily">
                     {dOw}
                     <input type="checkbox" key={dOw} value={dOw}></input>
                   </label>
@@ -22,7 +22,7 @@ const Task = (props) => {
             }
           </div>
         ) : props.value.frequency === "Weekly" ? (
-          <label className="task-label">
+          <label className="task-label tl-weekly">
             Weekly<input type="checkbox" value="Weekly"></input>
           </label>
         ) : (
