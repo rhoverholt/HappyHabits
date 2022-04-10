@@ -2,5 +2,6 @@
 
 }
 .Hidden{
+    display: none;
     visibility: hidden;
 }

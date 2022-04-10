@@ -10,7 +10,11 @@ import Auth from "../utils/auth";
 const Habit = () => {
 const { loading, data } = useQuery(QUERY_ME);
 let { id } = useParams();
-const taskId = id;
+let visibility = "btn-block btn-danger Visible btn btn-primary"
+if(!id){
+    visibility = "btn-block btn-danger Hidden btn btn-primary"
+} 
+// const taskId = id;
 const [createHabit, { error, habit }] = useMutation(CREATE_HABIT);
 const [createTask, {  task }] = useMutation(CREATE_TASK);
 const [removeTask, {}] = useMutation(REMOVE_TASK);
@@ -23,6 +27,8 @@ const [formState, setFormState] =  useState({habitTitle:``,
 
 let userData= data?.me || {};
 let addTaskForm=``;
+
+
 useEffect(() => {
     if(!data){
         return;
@@ -59,28 +65,30 @@ useEffect(() => {
 
   const handleHabitFormSubmit = async (event) => {
     event.preventDefault();
-const habitToSave = {
-    title:formState.habitTitle
+    const habitToSave = {
+    title:formState.habitTitle,
 }
 
 if (!id){
     try {
-        console.log("create was called")
         const { habit } = await createHabit({
           variables: { habit: habitToSave },
         });
         id = data.me.habits.length;
-        console.log(id);
+        document.location.replace(`/habit/${id}`);
+
   
       } catch (e) {
         console.error(e);
       }
 }
 else if(id){
-    console.log("update was called")
+
     try {
         const { habit } = await updateHabit({id,
-          variables: { habit: habitToSave },
+          variables: { 
+              index: id,
+              habit: habitToSave },
         });
   
       } catch (e) {
@@ -89,8 +97,11 @@ else if(id){
 }
 
   };
+
+  //Create a task
   const handleTaskFormSubmit = async (event) => {
     event.preventDefault();
+
     const taskToSave = {
         description:formState.description,
         frequency:formState.frequency,
@@ -101,19 +112,30 @@ else if(id){
 
     if(document.getElementById("addTaskForm").className="Visible"){
         document.getElementById("addTaskForm").setAttribute("class","Hidden");
-        document.getElementById("newTaskBtn").setAttribute("class","btn-block btn-danger Visible btn btn-primary");
+            visibility = "btn-block btn-danger Visible btn btn-primary";
+            document.getElementById("newTaskBtn").setAttribute("class",visibility);
+
     }
 
     try {
       const { task } = await createTask({
-        variables: { task:taskToSave},
+        variables: { 
+            index: id,
+            task:taskToSave},
       });
 
     } catch (e) {
       console.error(e);
     }
-  };
 
+setFormState(
+        {
+        description:``,
+        frequency:``,
+        startDate:``,
+        endDate:``} );
+
+        };
 
 
   const handleDeleteTask = async (taskId) => {
@@ -125,7 +147,9 @@ else if(id){
 
     try {
 
-      await removeTask({variables: {taskId: taskId}})
+      await removeTask({variables: {
+        index: id,
+        taskId: taskId}})
 
 
       // upon success, remove task from page
@@ -158,9 +182,11 @@ else if(id){
   const addNewTask = () =>{
     let addTaskForm = document.getElementById("addTaskForm");
     addTaskForm.setAttribute("class","Visible");
-    document.getElementById("newTaskBtn").setAttribute("class","Hidden");
+    visibility = "btn-block btn-danger Hidden btn btn-primary"
+    document.getElementById("newTaskBtn").setAttribute("class",visibility);
 
   };
+  
 
   if (loading) {
 
@@ -189,9 +215,11 @@ return (
                   Save Habit
                 </button>
               </form>
-              <Button id='newTaskBtn' className='btn-block btn-danger Visible btn btn-primary' onClick={() => addNewTask()}>
+              
+              <Button id='newTaskBtn' className={visibility} onClick={() => addNewTask()}>
                     Add New Task
                 </Button>
+
             <div id='addTaskForm' className="Hidden">
                 <form onSubmit={handleTaskFormSubmit}>
                     <input
@@ -255,7 +283,7 @@ return (
             );
           })}
 
-              ) 
+
 
 </>
   

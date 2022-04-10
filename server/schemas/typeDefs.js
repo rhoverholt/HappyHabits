@@ -67,11 +67,11 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     createHabit(input: habitInput): User
-    createTask(input: taskInput): User
+    createTask(index: String!, input: taskInput): User
     createTaskInstance(input: taskInstanceInput): User
-    removeTask(taskId: ID!): User
+    removeTask(index: String!, taskId: ID!): User
     removeTaskInstance(taskInstanceId: ID!): User
-    updateHabit(index: Int!, input: habitInput): User
+    updateHabit(index: String!, input: habitInput): User
   }
 `;
 

@@ -28,6 +28,7 @@ header {
 
 }
 .Hidden{
+    display: none;
     visibility: hidden;
 }
 
