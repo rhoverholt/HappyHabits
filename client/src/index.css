@@ -19,7 +19,7 @@
 
   --transition: all 400ms ease;
 
-  --containter-width-lg: 75%;
+  --containter-width-lg: 90%;
   --container-width-md: 86%;
   --container-width-sm: 90%;
 }
@@ -37,6 +37,8 @@ body {
   color: var(--color-white);
   line-height: 1.7;
   background-image: url(../src/assets/Home.jpg);
+  background-repeat: no-repeat;
+ 
 }
 
 /*GENERAL STUFF, LET's GO BABY  */
@@ -112,6 +114,7 @@ img {
   display: block;
   width: 100%;
   object-fit: cover;
+  position: absolute;
 }
 
 .Visible {

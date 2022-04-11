@@ -8,7 +8,8 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard-container">
-      <h1 className="dashboard-title">Habit-forming Activities:</h1>
+      <h1 className="dashboard-title">Habit-Forming Activities</h1>
+      <h2 className="dashboard-subtext">Shake Up Your Routine</h2>
       <div className="habit-container">
         {loading
           ? "loading..."

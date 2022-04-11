@@ -1,0 +1,29 @@
+.container-fluid {
+   
+    grid: 1rem;
+    grid-template-columns: 1fr;
+    gap: 2rem
+}
+
+/* .container.header__container {
+visibility: hidden;
+} */
+
+#navbar {
+    padding-left: 2rem;
+    gap: 1rem;
+   
+    background-color: var(--color-primary-variant);
+    width: 100%;
+    
+}
+
+.nav-link {
+    margin-right: 2rem;
+    color: var(--color-bg);
+    
+   
+}
+
+
+

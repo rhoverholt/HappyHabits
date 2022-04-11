@@ -20,14 +20,9 @@ const Header = () => {
           <p className="m-0">Little changes, big results.</p>
         </div>
         <div className="cta">
-          {Auth.loggedIn() ? (
-            <>
-              <span>Hey there, {Auth.getProfile().data.username}!</span>
-              <button className="btn" onClick={logout}>
-                Logout
-              </button>
-            </>
-          ) : (
+          {Auth.loggedIn() ? ""
+            
+           : (
             <>
               <Link className="btn" id="loginbtn" to="/login">
                 Login
