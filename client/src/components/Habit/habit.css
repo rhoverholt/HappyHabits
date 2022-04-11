@@ -6,6 +6,38 @@
   display: grid;
   place-items: center;
   border-radius: 1/1;
+ 
+}
+
+.dashboard-subtext {
+text-align: center;
+background-image: linear-gradient(45deg, 
+var(--color-bg-variant), 
+var(--color-bg),
+var(--color-primary),
+var(--color-primary-variant));
+animation: .8s shake infinite alternate;
+}
+
+@keyframes shake {
+0% { transform: skewX(-15deg); }
+5% { transform: skewX(15deg); }
+10% { transform: skewX(-15deg); }
+15% { transform: skewX(15deg); }
+20% { transform: skewX(0deg); }
+100% { transform: skewX(0deg); }  
+}
+
+
+
+@keyframes shake {
+  0% { transform: skewX(-15deg); }
+  5% { transform: skewX(15deg); }
+  10% { transform: skewX(-15deg); }
+  15% { transform: skewX(15deg); }
+  20% { transform: skewX(0deg); }
+  100% { transform: skewX(0deg); }  
+
 }
 
 .habit-container {
