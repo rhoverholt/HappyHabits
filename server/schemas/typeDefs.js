@@ -72,8 +72,8 @@ const typeDefs = gql`
     createTask(index: String!, input: taskInput): User
     updateTask(index: String!, taskId: ID!, input: taskInput): User
     removeTask(index: String!, taskId: ID!): User
-    createTaskInstance(input: taskInstanceInput): User
-    removeTaskInstance(taskInstanceId: ID!): User
+    createTaskInstance(index: Int!, taskID: ID!, input: taskInstanceInput): User
+    removeTaskInstance(index: Int!, taskID: ID!, input: taskInstanceInput): User
   }
 `;
 

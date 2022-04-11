@@ -4,10 +4,6 @@ const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
-    users: async () => {
-      return User.find();
-    },
-
     user: async (parent, { username }) => {
       return User.findOne({ username });
     },
@@ -140,15 +136,30 @@ const resolvers = {
     },
 
     // add a taskinstance to a task
-    createTaskInstance: async (parent, { input }, context) => {
+    createTaskInstance: async (parent, { index, taskId, input }, context) => {
+      console.log("Create task instance called: ", index, taskId, input);
       if (context.user) {
-        const updatedUser = await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $addToSet: { taskInstance: input } },
-          { new: true, runValidators: true }
-        );
+        if (index < 0)
+          throw new AuthenticationError("Cannot update task on invalid habit");
 
-        return updatedUser;
+        const user = await User.findOne({
+          _id: context.user._id,
+        }).select("-password");
+
+        if (user?.habits?.length > index + 1)
+          throw new AuthenticationError("Cannot update task on invalid habit");
+
+        user.habits[index]?.tasks?.forEach((task) => {
+          // only update the specified task
+          if (taskId == task.id) {
+            // only insert if there's not already one for that date
+            if (!task.taskInstance?.some((ti) => ti.dueDate == input.dueDate))
+              task.taskInstance.push({ dueDate: input.dueDate });
+          }
+        });
+
+        await user.save();
+        return user;
       }
 
       throw new AuthenticationError("You need to be logged in!");
@@ -182,15 +193,29 @@ const resolvers = {
     },
 
     //remove TaskInstance from task
-    removeTaskInstance: async (parent, { taskInstanceId }, context) => {
+    removeTaskInstance: async (parent, { index, taskId, input }, context) => {
+      console.log("Remove task instance called: ", index, taskId, input);
       if (context.user) {
-        const updatedUser = await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $pull: { taskInstance: { taskInstanceId: taskInstanceId } } },
-          { new: true }
-        );
+        if (index < 0)
+          throw new AuthenticationError("Cannot update task on invalid habit");
 
-        return updatedUser;
+        const user = await User.findOne({
+          _id: context.user._id,
+        }).select("-password");
+
+        if (user?.habits?.length > index + 1)
+          throw new AuthenticationError("Cannot update task on invalid habit");
+
+        user.habits[index]?.tasks?.forEach((task) => {
+          // only update the specified task
+          if (taskId == task.id) {
+            // only insert if there's not already one for that date
+            task.taskInstance?.filter((ti) => ti.dueDate != input.dueDate);
+          }
+        });
+
+        await user.save();
+        return user;
       }
 
       throw new AuthenticationError("You need to be logged in!");
