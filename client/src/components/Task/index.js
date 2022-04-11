@@ -8,22 +8,31 @@ import "./task.css";
 const mSecondsPerDay = 1000 * 60 * 60 * 24; // milliseconds per day
 
 const Task = (props) => {
-  const [
-    removeTaskInstance,
-    { data: rmData, loading: rmLoading, error: rmError },
-  ] = useMutation(REMOVE_TASKINSTANCE);
+  // const [
+  //   removeTaskInstance,
+  //   { data: rmData, loading: rmLoading, error: rmError },
+  // ] = useMutation(REMOVE_TASKINSTANCE);
 
-  const [
-    createTaskInstance,
-    { data: crData, loading: crLoading, error: crError },
-  ] = useMutation(CREATE_TASKINSTANCE);
+  const removeTaskInstance = useMutation(REMOVE_TASKINSTANCE)[0];
+  // const [
+  //   createTaskInstance,
+  //   { data: crData, loading: crLoading, error: crError },
+  // ] = useMutation(CREATE_TASKINSTANCE);
+  const createTaskInstance = useMutation(CREATE_TASKINSTANCE)[0];
 
   if (!props.value) return null;
 
   let weeklyDt = Date.now();
 
+  let dt = cleanDate(weeklyDt);
+  dt = new Date(dt - dt.getDay() * mSecondsPerDay);
+
+  weeklyDt = dt.getTime();
+
   function cleanDate(dateTime) {
-    let d = new Date(parseInt(dateTime));
+    let d =
+      typeof dateTime === Object ? dateTime : new Date(parseInt(dateTime));
+
     return new Date( // convert input date-time to a simple date with no time
       d.getMonth() + 1 + "/" + d.getDate() + "/" + d.getFullYear()
     );
@@ -52,13 +61,6 @@ const Task = (props) => {
     const tiCompleted = event.target.checked;
 
     console.log(hIndex, tIndex, tiDate, tiCompleted);
-    // const date = cleanDate(weeklyDt);
-
-    // const sunday = new Date(date - date.getDay() * mSecondsPerDay);
-
-    // let ["S", "M", "Tu", "W", "Th", "F", "Sa"].map((dow, index) => {
-    //   return { dow, date: new Date(sunday - -index * mSecondsPerDay) };
-    // });
 
     if (tiCompleted)
       createTaskInstance({
@@ -105,7 +107,18 @@ const Task = (props) => {
           </div>
         ) : props.value.frequency === "Weekly" ? (
           <label className="task-label tl-weekly">
-            Weekly<input type="checkbox" value="Weekly"></input>
+            Weekly
+            <input
+              type="checkbox"
+              value={new Date(weeklyDt)}
+              task={props.index}
+              habit={props.habitIndex}
+              defaultChecked={isComplete(
+                props.value.taskInstances,
+                new Date(weeklyDt)
+              )}
+              onChange={handleCheckBox}
+            ></input>
           </label>
         ) : (
           ""
