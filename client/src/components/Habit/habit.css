@@ -1,6 +1,11 @@
 .dashboard-title {
   color: var(--color-primary-variant);
   font-size: 3rem;
+  text-align: center;
+  background: linear-gradient(45deg, transparent, var(--color-bg-variant), transparent);
+  display: grid;
+  place-items: center;
+  border-radius: 1/1;
 }
 
 .habit-container {
@@ -9,7 +14,7 @@
   justify-content: space-around;
 }
 .habit-card {
-  background: var(--color-bg-variant);
+  background: linear-gradient(45deg, transparent, var(--color-bg-variant), transparent);
   padding: 2rem 3rem;
   border-radius: 2rem;
   border: 4px solid transparent;
@@ -37,7 +42,7 @@
 }
 
 .habit-link:hover {
-  color: var(--color-bg-variant);
+  color: var(--color-bg);
   cursor: pointer;
 }
 
