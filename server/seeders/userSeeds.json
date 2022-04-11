@@ -1,21 +1,386 @@
 [
   {
-    "username": "Brian Kernighan",
-    "email": "bkernighan@techfriends.dev",
+    "username": "Alex Kang",
+    "email": "Mkang987@gmail.com",
     "password": "password01",
     "habits": [
       {
-        "title": "My first habit to change",
+        "title": "Become a morning person",
         "status": "Active",
-        "notes": "I'm not sure how to progress my first habit!",
+        "notes": "",
+        "createdDate": "4/6/2022",
         "tasks": [
           {
-            "description": "Task 1",
-            "frequency": "Daily"
+            "description": "Do not take a nap during the day",
+            "frequency": "Daily",
+            "startDate": "4/6/2022",
+            "endDate": "4/20/2022",
+            "taskInstances": [
+              { "dueDate": "4/6/2022" },
+              { "dueDate": "4/7/2022" },
+              { "dueDate": "4/9/2022" },
+              { "dueDate": "4/10/2022" },
+              { "dueDate": "4/11/2022" },
+              { "dueDate": "4/13/2022" },
+              { "dueDate": "4/15/2022" },
+              { "dueDate": "4/16/2022" }
+            ]
           },
           {
-            "description": "Task 2",
-            "frequency": "Weekly"
+            "description": "Turn off all electronics by 10 PM",
+            "frequency": "Daily",
+            "startDate": "4/6/2022",
+            "endDate": "4/20/2022",
+            "taskInstances": [
+              { "dueDate": "4/6/2022" },
+              { "dueDate": "4/7/2022" },
+              { "dueDate": "4/9/2022" },
+              { "dueDate": "4/10/2022" },
+              { "dueDate": "4/11/2022" },
+              { "dueDate": "4/12/2022" },
+              { "dueDate": "4/13/2022" },
+              { "dueDate": "4/16/2022" }
+            ]
+          },
+          {
+            "description": "Stay in bed, trying to sleep, from bedtime until morning",
+            "frequency": "Daily",
+            "startDate": "4/6/2022",
+            "endDate": "4/20/2022",
+            "taskInstances": [
+              { "dueDate": "4/7/2022" },
+              { "dueDate": "4/8/2022" },
+              { "dueDate": "4/9/2022" },
+              { "dueDate": "4/10/2022" },
+              { "dueDate": "4/11/2022" },
+              { "dueDate": "4/12/2022" },
+              { "dueDate": "4/13/2022" }
+            ]
+          },
+          {
+            "description": "Wake by 8AM",
+            "frequency": "Daily",
+            "startDate": "4/6/2022",
+            "endDate": "4/20/2022",
+            "taskInstances": [
+              { "dueDate": "4/7/2022" },
+              { "dueDate": "4/9/2022" },
+              { "dueDate": "4/11/2022" },
+              { "dueDate": "4/13/2022" },
+              { "dueDate": "4/16/2022" }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Eat healthy food",
+        "status": "Active",
+        "notes": "I so love my chocolate and pizza...how can I possibly do this?!",
+        "createdDate": "4/1/2022",
+        "tasks": [
+          {
+            "description": "Allow myself to splurge no more than twice a week",
+            "frequency": "Weekly",
+            "startDate": "4/1/2022",
+            "endDate": "4/20/2022",
+            "taskInstances": [
+              { "dueDate": "4/3/2022" },
+              { "dueDate": "4/10/2022" }
+            ]
+          },
+          {
+            "description": "No sodas allowed, drink more water!",
+            "frequency": "Daily",
+            "startDate": "4/1/2022",
+            "endDate": "4/20/2022",
+            "taskInstances": [
+              { "dueDate": "4/1/2022" },
+              { "dueDate": "4/2/2022" },
+              { "dueDate": "4/3/2022" },
+              { "dueDate": "4/4/2022" },
+              { "dueDate": "4/5/2022" },
+              { "dueDate": "4/6/2022" },
+              { "dueDate": "4/7/2022" },
+              { "dueDate": "4/9/2022" },
+              { "dueDate": "4/10/2022" },
+              { "dueDate": "4/11/2022" }
+            ]
+          },
+          {
+            "description": "Reduce daily carb and caloric intake",
+            "frequency": "Daily",
+            "startDate": "4/1/2022",
+            "endDate": "4/20/2022",
+            "taskInstances": [
+              { "dueDate": "4/1/2022" },
+              { "dueDate": "4/2/2022" },
+              { "dueDate": "4/3/2022" },
+              { "dueDate": "4/5/2022" },
+              { "dueDate": "4/6/2022" },
+              { "dueDate": "4/7/2022" },
+              { "dueDate": "4/9/2022" },
+              { "dueDate": "4/11/2022" },
+              { "dueDate": "4/13/2022" },
+              { "dueDate": "4/16/2022" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "username": "Melissa Donato",
+    "email": "melissadonato11@gmail.com",
+    "password": "password01",
+    "habits": [
+      {
+        "title": "Become a morning person",
+        "status": "Active",
+        "notes": "",
+        "createdDate": "4/6/2022",
+        "tasks": [
+          {
+            "description": "Do not take a nap during the day",
+            "frequency": "Daily",
+            "startDate": "4/6/2022",
+            "endDate": "4/20/2022",
+            "taskInstances": [
+              { "dueDate": "4/6/2022" },
+              { "dueDate": "4/7/2022" },
+              { "dueDate": "4/9/2022" },
+              { "dueDate": "4/10/2022" },
+              { "dueDate": "4/11/2022" },
+              { "dueDate": "4/13/2022" },
+              { "dueDate": "4/15/2022" },
+              { "dueDate": "4/16/2022" }
+            ]
+          },
+          {
+            "description": "Turn off all electronics by 10 PM",
+            "frequency": "Daily",
+            "startDate": "4/6/2022",
+            "endDate": "4/20/2022",
+            "taskInstances": [
+              { "dueDate": "4/6/2022" },
+              { "dueDate": "4/7/2022" },
+              { "dueDate": "4/9/2022" },
+              { "dueDate": "4/10/2022" },
+              { "dueDate": "4/11/2022" },
+              { "dueDate": "4/12/2022" },
+              { "dueDate": "4/13/2022" },
+              { "dueDate": "4/16/2022" }
+            ]
+          },
+          {
+            "description": "Stay in bed, trying to sleep, from bedtime until morning",
+            "frequency": "Daily",
+            "startDate": "4/6/2022",
+            "endDate": "4/20/2022",
+            "taskInstances": [
+              { "dueDate": "4/7/2022" },
+              { "dueDate": "4/8/2022" },
+              { "dueDate": "4/9/2022" },
+              { "dueDate": "4/10/2022" },
+              { "dueDate": "4/11/2022" },
+              { "dueDate": "4/12/2022" },
+              { "dueDate": "4/13/2022" }
+            ]
+          },
+          {
+            "description": "Wake by 8AM",
+            "frequency": "Daily",
+            "startDate": "4/6/2022",
+            "endDate": "4/20/2022",
+            "taskInstances": [
+              { "dueDate": "4/7/2022" },
+              { "dueDate": "4/9/2022" },
+              { "dueDate": "4/11/2022" },
+              { "dueDate": "4/13/2022" },
+              { "dueDate": "4/16/2022" }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Eat healthy food",
+        "status": "Active",
+        "notes": "I so love my chocolate and pizza...how can I possibly do this?!",
+        "createdDate": "4/1/2022",
+        "tasks": [
+          {
+            "description": "Allow myself to splurge no more than twice a week",
+            "frequency": "Weekly",
+            "startDate": "4/1/2022",
+            "endDate": "4/20/2022",
+            "taskInstances": [
+              { "dueDate": "4/3/2022" },
+              { "dueDate": "4/10/2022" }
+            ]
+          },
+          {
+            "description": "No sodas allowed, drink more water!",
+            "frequency": "Daily",
+            "startDate": "4/1/2022",
+            "endDate": "4/20/2022",
+            "taskInstances": [
+              { "dueDate": "4/1/2022" },
+              { "dueDate": "4/2/2022" },
+              { "dueDate": "4/3/2022" },
+              { "dueDate": "4/4/2022" },
+              { "dueDate": "4/5/2022" },
+              { "dueDate": "4/6/2022" },
+              { "dueDate": "4/7/2022" },
+              { "dueDate": "4/9/2022" },
+              { "dueDate": "4/10/2022" },
+              { "dueDate": "4/11/2022" }
+            ]
+          },
+          {
+            "description": "Reduce daily carb and caloric intake",
+            "frequency": "Daily",
+            "startDate": "4/1/2022",
+            "endDate": "4/20/2022",
+            "taskInstances": [
+              { "dueDate": "4/1/2022" },
+              { "dueDate": "4/2/2022" },
+              { "dueDate": "4/3/2022" },
+              { "dueDate": "4/5/2022" },
+              { "dueDate": "4/6/2022" },
+              { "dueDate": "4/7/2022" },
+              { "dueDate": "4/9/2022" },
+              { "dueDate": "4/11/2022" },
+              { "dueDate": "4/13/2022" },
+              { "dueDate": "4/16/2022" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "username": "Sarah Labrot Lietz",
+    "email": "sarah.lientz@gmail.com",
+    "password": "password01",
+    "habits": [
+      {
+        "title": "Become a morning person",
+        "status": "Active",
+        "notes": "",
+        "createdDate": "4/6/2022",
+        "tasks": [
+          {
+            "description": "Do not take a nap during the day",
+            "frequency": "Daily",
+            "startDate": "4/6/2022",
+            "endDate": "4/20/2022",
+            "taskInstances": [
+              { "dueDate": "4/6/2022" },
+              { "dueDate": "4/7/2022" },
+              { "dueDate": "4/9/2022" },
+              { "dueDate": "4/10/2022" },
+              { "dueDate": "4/11/2022" },
+              { "dueDate": "4/13/2022" },
+              { "dueDate": "4/15/2022" },
+              { "dueDate": "4/16/2022" }
+            ]
+          },
+          {
+            "description": "Turn off all electronics by 10 PM",
+            "frequency": "Daily",
+            "startDate": "4/6/2022",
+            "endDate": "4/20/2022",
+            "taskInstances": [
+              { "dueDate": "4/6/2022" },
+              { "dueDate": "4/7/2022" },
+              { "dueDate": "4/9/2022" },
+              { "dueDate": "4/10/2022" },
+              { "dueDate": "4/11/2022" },
+              { "dueDate": "4/12/2022" },
+              { "dueDate": "4/13/2022" },
+              { "dueDate": "4/16/2022" }
+            ]
+          },
+          {
+            "description": "Stay in bed, trying to sleep, from bedtime until morning",
+            "frequency": "Daily",
+            "startDate": "4/6/2022",
+            "endDate": "4/20/2022",
+            "taskInstances": [
+              { "dueDate": "4/7/2022" },
+              { "dueDate": "4/8/2022" },
+              { "dueDate": "4/9/2022" },
+              { "dueDate": "4/10/2022" },
+              { "dueDate": "4/11/2022" },
+              { "dueDate": "4/12/2022" },
+              { "dueDate": "4/13/2022" }
+            ]
+          },
+          {
+            "description": "Wake by 8AM",
+            "frequency": "Daily",
+            "startDate": "4/6/2022",
+            "endDate": "4/20/2022",
+            "taskInstances": [
+              { "dueDate": "4/7/2022" },
+              { "dueDate": "4/9/2022" },
+              { "dueDate": "4/11/2022" },
+              { "dueDate": "4/13/2022" },
+              { "dueDate": "4/16/2022" }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Eat healthy food",
+        "status": "Active",
+        "notes": "I so love my chocolate and pizza...how can I possibly do this?!",
+        "createdDate": "4/1/2022",
+        "tasks": [
+          {
+            "description": "Allow myself to splurge no more than twice a week",
+            "frequency": "Weekly",
+            "startDate": "4/1/2022",
+            "endDate": "4/20/2022",
+            "taskInstances": [
+              { "dueDate": "4/3/2022" },
+              { "dueDate": "4/10/2022" }
+            ]
+          },
+          {
+            "description": "No sodas allowed, drink more water!",
+            "frequency": "Daily",
+            "startDate": "4/1/2022",
+            "endDate": "4/20/2022",
+            "taskInstances": [
+              { "dueDate": "4/1/2022" },
+              { "dueDate": "4/2/2022" },
+              { "dueDate": "4/3/2022" },
+              { "dueDate": "4/4/2022" },
+              { "dueDate": "4/5/2022" },
+              { "dueDate": "4/6/2022" },
+              { "dueDate": "4/7/2022" },
+              { "dueDate": "4/9/2022" },
+              { "dueDate": "4/10/2022" },
+              { "dueDate": "4/11/2022" }
+            ]
+          },
+          {
+            "description": "Reduce daily carb and caloric intake",
+            "frequency": "Daily",
+            "startDate": "4/1/2022",
+            "endDate": "4/20/2022",
+            "taskInstances": [
+              { "dueDate": "4/1/2022" },
+              { "dueDate": "4/2/2022" },
+              { "dueDate": "4/3/2022" },
+              { "dueDate": "4/5/2022" },
+              { "dueDate": "4/6/2022" },
+              { "dueDate": "4/7/2022" },
+              { "dueDate": "4/9/2022" },
+              { "dueDate": "4/11/2022" },
+              { "dueDate": "4/13/2022" },
+              { "dueDate": "4/16/2022" }
+            ]
           }
         ]
       }
@@ -27,18 +392,124 @@
     "password": "password01",
     "habits": [
       {
-        "title": "My first habit to change",
+        "title": "Become a morning person",
         "status": "Active",
-        "notes": "I'm not sure how to progress my first habit!",
+        "notes": "This is so challenging, as even just last night I stayed up late to work on a computer program...",
         "createdDate": "4/6/2022",
         "tasks": [
           {
-            "description": "Task 1",
-            "frequency": "Daily"
+            "description": "Do not take a nap during the day",
+            "frequency": "Daily",
+            "startDate": "4/6/2022",
+            "endDate": "4/20/2022",
+            "taskInstances": [
+              { "dueDate": "4/6/2022" },
+              { "dueDate": "4/7/2022" },
+              { "dueDate": "4/9/2022" },
+              { "dueDate": "4/10/2022" },
+              { "dueDate": "4/11/2022" },
+              { "dueDate": "4/13/2022" },
+              { "dueDate": "4/15/2022" },
+              { "dueDate": "4/16/2022" }
+            ]
           },
           {
-            "description": "Task 2",
-            "frequency": "Weekly"
+            "description": "Turn off all electronics by 10 PM",
+            "frequency": "Daily",
+            "startDate": "4/6/2022",
+            "endDate": "4/20/2022",
+            "taskInstances": [
+              { "dueDate": "4/6/2022" },
+              { "dueDate": "4/7/2022" },
+              { "dueDate": "4/9/2022" },
+              { "dueDate": "4/10/2022" },
+              { "dueDate": "4/11/2022" },
+              { "dueDate": "4/12/2022" },
+              { "dueDate": "4/13/2022" },
+              { "dueDate": "4/16/2022" }
+            ]
+          },
+          {
+            "description": "Stay in bed, trying to sleep, from bedtime until morning",
+            "frequency": "Daily",
+            "startDate": "4/6/2022",
+            "endDate": "4/20/2022",
+            "taskInstances": [
+              { "dueDate": "4/7/2022" },
+              { "dueDate": "4/8/2022" },
+              { "dueDate": "4/9/2022" },
+              { "dueDate": "4/10/2022" },
+              { "dueDate": "4/11/2022" },
+              { "dueDate": "4/12/2022" },
+              { "dueDate": "4/13/2022" }
+            ]
+          },
+          {
+            "description": "Wake by 8AM",
+            "frequency": "Daily",
+            "startDate": "4/6/2022",
+            "endDate": "4/20/2022",
+            "taskInstances": [
+              { "dueDate": "4/7/2022" },
+              { "dueDate": "4/9/2022" },
+              { "dueDate": "4/11/2022" },
+              { "dueDate": "4/13/2022" },
+              { "dueDate": "4/16/2022" }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Eat healthy food",
+        "status": "Active",
+        "notes": "I so love my chocolate and pizza...how can I possibly do this?!",
+        "createdDate": "4/1/2022",
+        "tasks": [
+          {
+            "description": "Allow myself to splurge no more than twice a week",
+            "frequency": "Weekly",
+            "startDate": "4/1/2022",
+            "endDate": "4/20/2022",
+            "taskInstances": [
+              { "dueDate": "4/3/2022" },
+              { "dueDate": "4/10/2022" }
+            ]
+          },
+          {
+            "description": "No sodas allowed, drink more water!",
+            "frequency": "Daily",
+            "startDate": "4/1/2022",
+            "endDate": "4/20/2022",
+            "taskInstances": [
+              { "dueDate": "4/1/2022" },
+              { "dueDate": "4/2/2022" },
+              { "dueDate": "4/3/2022" },
+              { "dueDate": "4/4/2022" },
+              { "dueDate": "4/5/2022" },
+              { "dueDate": "4/6/2022" },
+              { "dueDate": "4/7/2022" },
+              { "dueDate": "4/9/2022" },
+              { "dueDate": "4/10/2022" },
+              { "dueDate": "4/11/2022" }
+            ]
+          },
+          {
+            "description": "Reduce daily carb and caloric intake",
+            "frequency": "Daily",
+            "startDate": "4/1/2022",
+            "endDate": "4/20/2022",
+            "taskInstances": [
+              { "dueDate": "4/1/2022" },
+              { "dueDate": "4/2/2022" },
+              { "dueDate": "4/3/2022" },
+              { "dueDate": "4/5/2022" },
+              { "dueDate": "4/6/2022" },
+              { "dueDate": "4/7/2022" },
+              { "dueDate": "4/9/2022" },
+              { "dueDate": "4/11/2022" },
+              { "dueDate": "4/13/2022" },
+              { "dueDate": "4/16/2022" }
+            ]
           }
         ]
       }

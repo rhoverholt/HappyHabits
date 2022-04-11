@@ -1,52 +1,21 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useQuery } from "@apollo/client";
 import Habit from "../components/Habit";
-
-const habits = [
-  {
-    id: "134otyb1234oiuyt103",
-    title: "My first habit to change",
-    status: "Active",
-    notes: "I'm not sure how to progress my first habit!",
-    createdDate: "4/6/2022",
-    tasks: [
-      {
-        description: "Task 1",
-        frequency: "Daily",
-      },
-      {
-        description: "Task 2",
-        frequency: "Weekly",
-      },
-    ],
-  },
-  {
-    id: "134oiutb13o4t",
-    title: "My second habit to change",
-    status: "Active",
-    notes: "I'm not sure how to progress my first habit!",
-    createdDate: "4/6/2022",
-    tasks: [
-      {
-        description: "Task 1",
-        frequency: "Daily",
-      },
-      {
-        description: "Task 2",
-        frequency: "Weekly",
-      },
-    ],
-  },
-];
+import { QUERY_ME } from "../utils/queries";
 
 const Dashboard = () => {
+  const { loading, data } = useQuery(QUERY_ME);
+
   return (
     <div className="dashboard-container">
-      <h1 className="dashboard-title">Habit-forming Activities:</h1>
+      <h1 className="dashboard-title">Habit-Forming Activities</h1>
+      <h2 className="dashboard-subtext">Shake Up Your Routine</h2>
       <div className="habit-container">
-        {habits.map((habit) => {
-          return <Habit key={habit.id} value={habit} />;
-        })}
+        {loading
+          ? "loading..."
+          : data.me.habits.map((habit, index) => {
+              return <Habit key={index} index={index} value={habit} />;
+            })}
       </div>
     </div>
   );
