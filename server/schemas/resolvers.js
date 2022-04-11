@@ -1,5 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { up } = require("inquirer/lib/utils/readline");
+// const { up } = require("inquirer/lib/utils/readline");
 const { User } = require("../models");
 const { signToken } = require("../utils/auth");
 
