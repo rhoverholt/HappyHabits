@@ -1,13 +1,13 @@
 .container-fluid {
-    position: absolute;
+   
     grid: 1rem;
     grid-template-columns: 1fr;
     gap: 2rem
 }
 
-.container.header__container {
+/* .container.header__container {
 visibility: hidden;
-}
+} */
 
 #navbar {
     padding-left: 2rem;
