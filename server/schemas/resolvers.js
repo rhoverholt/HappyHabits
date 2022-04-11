@@ -136,27 +136,35 @@ const resolvers = {
     },
 
     // add a taskinstance to a task
-    createTaskInstance: async (parent, { index, taskId, input }, context) => {
-      console.log("Create task instance called: ", index, taskId, input);
+    createTaskInstance: async (parent, { hIndex, tIndex, input }, context) => {
+      console.log("Create task instance called: ", hIndex, tIndex, input);
+
+      if (!input?.dueDate) throw new AuthenticationError("Invalid input");
+      input.dueDate = new Date(input.dueDate);
+      if (!input.dueDate) throw new AuthenticationError("Invalid input");
+
       if (context.user) {
-        if (index < 0)
+        if (hIndex < 0)
           throw new AuthenticationError("Cannot update task on invalid habit");
 
         const user = await User.findOne({
           _id: context.user._id,
         }).select("-password");
 
-        if (user?.habits?.length > index + 1)
+        if (user?.habits?.length < hIndex + 1)
           throw new AuthenticationError("Cannot update task on invalid habit");
 
-        user.habits[index]?.tasks?.forEach((task) => {
-          // only update the specified task
-          if (taskId == task.id) {
-            // only insert if there's not already one for that date
-            if (!task.taskInstance?.some((ti) => ti.dueDate == input.dueDate))
-              task.taskInstance.push({ dueDate: input.dueDate });
-          }
-        });
+        if (user?.habits?.tasks?.length < tIndex + 1)
+          throw new AuthenticationError("Cannot add to invalid task");
+
+        if (
+          !user.habits[hIndex]?.tasks[tIndex]?.taskInstances.some(
+            (ti) => ti.dueDate.toString() === input.dueDate.toString
+          )
+        )
+          user.habits[hIndex].tasks[tIndex].taskInstances.push({
+            dueDate: input.dueDate,
+          });
 
         await user.save();
         return user;
@@ -177,7 +185,7 @@ const resolvers = {
           _id: context.user._id,
         }).select("-password");
 
-        if (user?.habits?.length > index + 1)
+        if (user?.habits?.length < index + 1)
           throw new AuthenticationError("Cannot add task to invalid habit");
 
         user.habits[index]?.tasks?.filter((task) => {
@@ -193,26 +201,28 @@ const resolvers = {
     },
 
     //remove TaskInstance from task
-    removeTaskInstance: async (parent, { index, taskId, input }, context) => {
-      console.log("Remove task instance called: ", index, taskId, input);
+    removeTaskInstance: async (parent, { hIndex, tIndex, date }, context) => {
+      console.log("Remove task instance called: ", hIndex, tIndex, date);
+      date = new Date(date);
       if (context.user) {
-        if (index < 0)
+        if (hIndex < 0)
           throw new AuthenticationError("Cannot update task on invalid habit");
 
         const user = await User.findOne({
           _id: context.user._id,
         }).select("-password");
 
-        if (user?.habits?.length > index + 1)
+        if (user?.habits?.length < hIndex + 1)
           throw new AuthenticationError("Cannot update task on invalid habit");
 
-        user.habits[index]?.tasks?.forEach((task) => {
-          // only update the specified task
-          if (taskId == task.id) {
-            // only insert if there's not already one for that date
-            task.taskInstance?.filter((ti) => ti.dueDate != input.dueDate);
-          }
-        });
+        if (user?.habits?.tasks?.length < tIndex + 1)
+          throw new AuthenticationError("Cannot update invalid task");
+
+        user.habits[hIndex].tasks[tIndex].taskInstances = user.habits[
+          hIndex
+        ].tasks[tIndex].taskInstances.filter(
+          (ti) => ti.dueDate.toString() != date.toString()
+        );
 
         await user.save();
         return user;

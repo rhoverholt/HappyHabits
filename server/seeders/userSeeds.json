@@ -71,6 +71,60 @@
             ]
           }
         ]
+      },
+      {
+        "title": "Eat healthy food",
+        "status": "Active",
+        "notes": "I so love my chocolate and pizza...how can I possibly do this?!",
+        "createdDate": "4/1/2022",
+        "tasks": [
+          {
+            "description": "Allow myself to splurge no more than twice a week",
+            "frequency": "Weekly",
+            "startDate": "4/1/2022",
+            "endDate": "4/20/2022",
+            "taskInstances": [
+              { "dueDate": "4/3/2022" },
+              { "dueDate": "4/10/2022" }
+            ]
+          },
+          {
+            "description": "No sodas allowed, drink more water!",
+            "frequency": "Daily",
+            "startDate": "4/1/2022",
+            "endDate": "4/20/2022",
+            "taskInstances": [
+              { "dueDate": "4/1/2022" },
+              { "dueDate": "4/2/2022" },
+              { "dueDate": "4/3/2022" },
+              { "dueDate": "4/4/2022" },
+              { "dueDate": "4/5/2022" },
+              { "dueDate": "4/6/2022" },
+              { "dueDate": "4/7/2022" },
+              { "dueDate": "4/9/2022" },
+              { "dueDate": "4/10/2022" },
+              { "dueDate": "4/11/2022" }
+            ]
+          },
+          {
+            "description": "Reduce daily carb and caloric intake",
+            "frequency": "Daily",
+            "startDate": "4/1/2022",
+            "endDate": "4/20/2022",
+            "taskInstances": [
+              { "dueDate": "4/1/2022" },
+              { "dueDate": "4/2/2022" },
+              { "dueDate": "4/3/2022" },
+              { "dueDate": "4/5/2022" },
+              { "dueDate": "4/6/2022" },
+              { "dueDate": "4/7/2022" },
+              { "dueDate": "4/9/2022" },
+              { "dueDate": "4/11/2022" },
+              { "dueDate": "4/13/2022" },
+              { "dueDate": "4/16/2022" }
+            ]
+          }
+        ]
       }
     ]
   },
@@ -138,6 +192,60 @@
             "startDate": "4/6/2022",
             "endDate": "4/20/2022",
             "taskInstances": [
+              { "dueDate": "4/7/2022" },
+              { "dueDate": "4/9/2022" },
+              { "dueDate": "4/11/2022" },
+              { "dueDate": "4/13/2022" },
+              { "dueDate": "4/16/2022" }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Eat healthy food",
+        "status": "Active",
+        "notes": "I so love my chocolate and pizza...how can I possibly do this?!",
+        "createdDate": "4/1/2022",
+        "tasks": [
+          {
+            "description": "Allow myself to splurge no more than twice a week",
+            "frequency": "Weekly",
+            "startDate": "4/1/2022",
+            "endDate": "4/20/2022",
+            "taskInstances": [
+              { "dueDate": "4/3/2022" },
+              { "dueDate": "4/10/2022" }
+            ]
+          },
+          {
+            "description": "No sodas allowed, drink more water!",
+            "frequency": "Daily",
+            "startDate": "4/1/2022",
+            "endDate": "4/20/2022",
+            "taskInstances": [
+              { "dueDate": "4/1/2022" },
+              { "dueDate": "4/2/2022" },
+              { "dueDate": "4/3/2022" },
+              { "dueDate": "4/4/2022" },
+              { "dueDate": "4/5/2022" },
+              { "dueDate": "4/6/2022" },
+              { "dueDate": "4/7/2022" },
+              { "dueDate": "4/9/2022" },
+              { "dueDate": "4/10/2022" },
+              { "dueDate": "4/11/2022" }
+            ]
+          },
+          {
+            "description": "Reduce daily carb and caloric intake",
+            "frequency": "Daily",
+            "startDate": "4/1/2022",
+            "endDate": "4/20/2022",
+            "taskInstances": [
+              { "dueDate": "4/1/2022" },
+              { "dueDate": "4/2/2022" },
+              { "dueDate": "4/3/2022" },
+              { "dueDate": "4/5/2022" },
+              { "dueDate": "4/6/2022" },
               { "dueDate": "4/7/2022" },
               { "dueDate": "4/9/2022" },
               { "dueDate": "4/11/2022" },
@@ -221,6 +329,60 @@
             ]
           }
         ]
+      },
+      {
+        "title": "Eat healthy food",
+        "status": "Active",
+        "notes": "I so love my chocolate and pizza...how can I possibly do this?!",
+        "createdDate": "4/1/2022",
+        "tasks": [
+          {
+            "description": "Allow myself to splurge no more than twice a week",
+            "frequency": "Weekly",
+            "startDate": "4/1/2022",
+            "endDate": "4/20/2022",
+            "taskInstances": [
+              { "dueDate": "4/3/2022" },
+              { "dueDate": "4/10/2022" }
+            ]
+          },
+          {
+            "description": "No sodas allowed, drink more water!",
+            "frequency": "Daily",
+            "startDate": "4/1/2022",
+            "endDate": "4/20/2022",
+            "taskInstances": [
+              { "dueDate": "4/1/2022" },
+              { "dueDate": "4/2/2022" },
+              { "dueDate": "4/3/2022" },
+              { "dueDate": "4/4/2022" },
+              { "dueDate": "4/5/2022" },
+              { "dueDate": "4/6/2022" },
+              { "dueDate": "4/7/2022" },
+              { "dueDate": "4/9/2022" },
+              { "dueDate": "4/10/2022" },
+              { "dueDate": "4/11/2022" }
+            ]
+          },
+          {
+            "description": "Reduce daily carb and caloric intake",
+            "frequency": "Daily",
+            "startDate": "4/1/2022",
+            "endDate": "4/20/2022",
+            "taskInstances": [
+              { "dueDate": "4/1/2022" },
+              { "dueDate": "4/2/2022" },
+              { "dueDate": "4/3/2022" },
+              { "dueDate": "4/5/2022" },
+              { "dueDate": "4/6/2022" },
+              { "dueDate": "4/7/2022" },
+              { "dueDate": "4/9/2022" },
+              { "dueDate": "4/11/2022" },
+              { "dueDate": "4/13/2022" },
+              { "dueDate": "4/16/2022" }
+            ]
+          }
+        ]
       }
     ]
   },
@@ -288,6 +450,60 @@
             "startDate": "4/6/2022",
             "endDate": "4/20/2022",
             "taskInstances": [
+              { "dueDate": "4/7/2022" },
+              { "dueDate": "4/9/2022" },
+              { "dueDate": "4/11/2022" },
+              { "dueDate": "4/13/2022" },
+              { "dueDate": "4/16/2022" }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Eat healthy food",
+        "status": "Active",
+        "notes": "I so love my chocolate and pizza...how can I possibly do this?!",
+        "createdDate": "4/1/2022",
+        "tasks": [
+          {
+            "description": "Allow myself to splurge no more than twice a week",
+            "frequency": "Weekly",
+            "startDate": "4/1/2022",
+            "endDate": "4/20/2022",
+            "taskInstances": [
+              { "dueDate": "4/3/2022" },
+              { "dueDate": "4/10/2022" }
+            ]
+          },
+          {
+            "description": "No sodas allowed, drink more water!",
+            "frequency": "Daily",
+            "startDate": "4/1/2022",
+            "endDate": "4/20/2022",
+            "taskInstances": [
+              { "dueDate": "4/1/2022" },
+              { "dueDate": "4/2/2022" },
+              { "dueDate": "4/3/2022" },
+              { "dueDate": "4/4/2022" },
+              { "dueDate": "4/5/2022" },
+              { "dueDate": "4/6/2022" },
+              { "dueDate": "4/7/2022" },
+              { "dueDate": "4/9/2022" },
+              { "dueDate": "4/10/2022" },
+              { "dueDate": "4/11/2022" }
+            ]
+          },
+          {
+            "description": "Reduce daily carb and caloric intake",
+            "frequency": "Daily",
+            "startDate": "4/1/2022",
+            "endDate": "4/20/2022",
+            "taskInstances": [
+              { "dueDate": "4/1/2022" },
+              { "dueDate": "4/2/2022" },
+              { "dueDate": "4/3/2022" },
+              { "dueDate": "4/5/2022" },
+              { "dueDate": "4/6/2022" },
               { "dueDate": "4/7/2022" },
               { "dueDate": "4/9/2022" },
               { "dueDate": "4/11/2022" },

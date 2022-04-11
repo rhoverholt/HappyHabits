@@ -16,7 +16,7 @@
   margin-left: 2rem;
   margin-right: 2rem;
   text-align: center;
-  width: 300px;
+  width: 600px;
 }
 
 .habit-card:hover {
@@ -39,6 +39,11 @@
 .habit-link:hover {
   color: var(--color-bg-variant);
   cursor: pointer;
+}
+
+.habit-body {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .Visible {

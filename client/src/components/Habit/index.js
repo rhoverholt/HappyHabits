@@ -14,7 +14,7 @@ const Habit = (props) => {
       <div className="habit-body">
         {/* <Task value={props.value.tasks[0]} /> */}
         {props.value?.tasks.map((task, index) => {
-          return <Task key={index} index={index} value={task} />;
+          return <Task key={index} habitIndex={props.index} index={index} value={task} />;
           //   return <p>Here's a task </p>;
         })}
       </div>

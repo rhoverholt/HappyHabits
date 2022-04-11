@@ -46,8 +46,8 @@ export const ADD_USER = gql`
 //deletes an instance of a task
 
 export const REMOVE_TASKINSTANCE = gql`
-  mutation removeTaskInstance($taskInstanceId: ID!) {
-    removeTaskInstance(taskInstanceId: $taskInstanceId) {
+  mutation removeTaskInstance($hIndex: Int!, $tIndex: Int!, $date: String!) {
+    removeTaskInstance(hIndex: $hIndex, tIndex: $tIndex, date: $date) {
       _id
       username
       email
@@ -151,8 +151,12 @@ export const CREATE_TASK = gql`
 
 // create taskinstance data for a logged in user
 export const CREATE_TASKINSTANCE = gql`
-  mutation createTaskInstance($taskInstance: taskInstanceInput!) {
-    createTaskInstance(input: $taskInstance) {
+  mutation createTaskInstance(
+    $hIndex: Int!
+    $input: taskInstanceInput
+    $tIndex: Int!
+  ) {
+    createTaskInstance(hIndex: $hIndex, input: $input, tIndex: $tIndex) {
       _id
       username
       email
