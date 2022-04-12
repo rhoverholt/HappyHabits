@@ -50,8 +50,8 @@ const resolvers = {
         const user = await User.findOne({ _id: context.user._id }).select(
           "-password"
         );
-        if (user?.habits?.length > index + 1)
-          throw new AuthenticationError("Cannot update invalid Habit");
+        // if (user?.habits?.length > index + 1)
+        //   throw new AuthenticationError("Cannot update invalid Habit");
 
         // update each habit field as given in input...do not, however, update the createdDate field even if given
         ["title", "status", "notes", "completedDate"].forEach((field) => {
@@ -89,8 +89,8 @@ const resolvers = {
           _id: context.user._id,
         }).select("-password");
 
-        if (updatedUser?.habits?.length > index + 1)
-          throw new AuthenticationError("Cannot add task to invalid habit");
+        // if (updatedUser?.habits?.length > index + 1)
+        //   throw new AuthenticationError("Cannot add task to invalid habit");
 
         if (!updatedUser.habits[index]?.tasks)
           updatedUser.habits[index].tasks = [input];
@@ -103,10 +103,10 @@ const resolvers = {
     },
 
     // update a task
-    updateTask: async (parent, { index, taskId, input }, context) => {
-      console.log("Update task called: ", index, taskId, input);
+    updateTask: async (parent, { index, taskIndex, input }, context) => {
+      console.log("Update task called: ", index, taskIndex, input);
       if (context.user) {
-        console.log("Update task called: ", index, taskId, input);
+        console.log("Update task called: ", index, taskIndex, input);
         if (index < 0)
           throw new AuthenticationError("Cannot update task on invalid habit");
 
@@ -114,18 +114,22 @@ const resolvers = {
           _id: context.user._id,
         }).select("-password");
 
-        if (user?.habits?.length > index + 1)
+        if (user?.habits?.length < index + 1)
           throw new AuthenticationError("Cannot update task on invalid habit");
 
-        user.habits[index]?.tasks?.forEach((task) => {
-          // only update the specified task
-          if (taskId == task.id) {
-            ["description", "frequency", "startDate", "endDate"].forEach(
-              (field) => {
-                if (input[field]) task[field] = input[field]; // only update those fields that are given as input
-              }
-            );
-          }
+        // user.habits[index]?.tasks[taskIndex]?.forEach((task) => {
+        //   // only update the specified task
+        //   if (taskIndex == task.id) {
+        //     ["description", "frequency", "startDate", "endDate"].forEach(
+        //       (field) => {
+        //         if (input[field]) task[field] = input[field]; // only update those fields that are given as input
+        //       }
+        //     );
+        //   }
+        // });
+
+        ["description", "frequency", "startDate", "endDate"].forEach((field) => {
+          if (input[field]) user.habits[index].tasks[taskIndex][field] = input[field];
         });
 
         await user.save();

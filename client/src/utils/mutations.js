@@ -180,3 +180,27 @@ export const CREATE_TASKINSTANCE = gql`
     }
   }
 `;
+
+// update task data for a logged in user
+export const UPDATE_TASK = gql`
+  mutation updateTask($index: String!, $taskIndex: String!, $task: taskInput!) {
+    updateTask(index: $index, taskIndex: $taskIndex, input: $task) {
+      _id
+      username
+      email
+      habits {
+        title
+        status
+        notes
+        createdDate
+        completedDate
+        tasks {
+          description
+          frequency
+          startDate
+          endDate
+        }
+      }
+    }
+  }
+`;

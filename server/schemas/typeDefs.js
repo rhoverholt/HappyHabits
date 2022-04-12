@@ -70,8 +70,8 @@ const typeDefs = gql`
     updateHabit(index: String!, input: habitInput): User
     removeHabit(index: String!): User
     createTask(index: String!, input: taskInput): User
-    updateTask(index: String!, taskId: ID!, input: taskInput): User
-    removeTask(index: String!, taskId: ID!): User
+    updateTask(index: String!, taskIndex: String!, input: taskInput): User
+    removeTask(index: String!, taskIndex: String!): User
     createTaskInstance(
       hIndex: Int!
       tIndex: Int!
