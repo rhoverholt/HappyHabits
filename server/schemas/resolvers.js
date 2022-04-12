@@ -50,7 +50,7 @@ const resolvers = {
         const user = await User.findOne({ _id: context.user._id }).select(
           "-password"
         );
-        if (user?.habits?.length > index + 1)
+        if (user?.habits?.length < index + 1)
           throw new AuthenticationError("Cannot update invalid Habit");
 
         // update each habit field as given in input...do not, however, update the createdDate field even if given
