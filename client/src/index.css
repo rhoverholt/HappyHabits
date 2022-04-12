@@ -19,7 +19,7 @@
 
   --transition: all 400ms ease;
 
-  --containter-width-lg: 90%;
+  --containter-width-lg: 100%;
   --container-width-md: 86%;
   --container-width-sm: 90%;
 }
@@ -49,6 +49,7 @@ body {
  margin-top: 2rem;
  padding-bottom: 5rem;
  margin-bottom: -7rem;
+ height: 100%;
   
   
 
@@ -58,6 +59,7 @@ body {
 .container {
   width: var(--containter-width-lg);
   margin: 0 auto;
+
 }
 
 h1,
@@ -122,12 +124,7 @@ a:hover {
   color: var(--color-bg);
 }
 
-img {
-  display: block;
-  width: 100%;
-  object-fit: cover;
-  position: absolute;
-}
+
 
 .Visible {
 }
@@ -135,6 +132,8 @@ img {
   display: none;
   visibility: hidden;
 }
+
+
 
 /* media queries(medium devices) */
 
@@ -159,3 +158,9 @@ img {
     margin-bottom: 2rem;
   }
 }
+
+/* .card {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+} */
