@@ -4,7 +4,8 @@
    padding: 3rem 0; 
    text-align: center;
    font-size: 0.9rem;
-   margin-top: 7rem;
+   margin-top: 9rem;
+   
 
 }
 
@@ -29,7 +30,7 @@ input, textarea {
 }
 
 .container.contact__container {
-    width: 30%;
-    gap: 12%;
+  display: flex;
+  justify-content: center;
 
 }

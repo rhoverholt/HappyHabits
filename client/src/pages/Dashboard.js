@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import Habit from "../components/Habit";
 import { QUERY_ME } from "../utils/queries";
