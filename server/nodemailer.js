@@ -1,3 +1,5 @@
+const { Habits , TaskInstance, Tasks, User} = require('./models');
+const db = require('./config/connection');
 require('dotenv').config();
 
 const schedule = require('node-schedule');
@@ -5,8 +7,8 @@ const nodemailer = require('nodemailer');
 const EMAIL = process.env.MAILER_EMAIL;
 const PW = process.env.MAILER_PASSWORD;
 
+
 //email account info
-console.log(EMAIL);
 const transporter = nodemailer.createTransport({
     service: "hotmail",
     auth: {
@@ -14,84 +16,81 @@ const transporter = nodemailer.createTransport({
         pass: PW
     }
 });
+console.log(EMAIL);
 
-// function testFunction() {
-//     schedule.scheduleJob('* /5 * * * *', () => {
-//         const options = {
-//             from: "HHM-RMSM@outlook.com",
-//             to: "mkang987@gmail.com",
-//             subject: "5 minute email reminder",
-//             text: "it has been 5 minutes"
-//         };
-    
-//         transporter.sendMail(options, function(err ,info) {
-//             if(err) {
-//                 console.log(err);
-//                 return;
-//             }
-//             console.log(info.response);
-//         });
-//     })
-// };
+db.once('open', () => {
+    init();
+  })
 
 function testFunction() {
-    console.log('EMAIL SENT, i hope.');
-    // const transporter = nodemailer.createTransport({
-    //     service: "hotmail",
-    //     auth: {
-    //         user: EMAIL,
-    //         pass: PW
-    //     }
-    // });
-    const options = {
-        from: "HHM-RMSM@outlook.com",
-        to: "mkang987@gmail.com",
-        subject: "Your daily habit tasks!",
-        text: "good morning loser"
-    };
+    var emailList = getUsers();
+    console.log("test function: " + emailList);
+    for(var i = 0; i < emailList.length; i++) {
+        const options = {
+            from: "HHM-RMSM@outlook.com",
+            to: emailList[i],
+            subject: "Your daily habit tasks!",
+            text: "good morning loser"
+        };
+    
+        transporter.sendMail(options, function(err ,info) {
+            if(err) {
+                console.log(err);
+                return;
+            }
+            console.log(info.response);
+        });
 
-    transporter.sendMail(options, function(err ,info) {
-        if(err) {
-            console.log(err);
-            return;
-        }
-        console.log(info.response);
-    });
+        console.log("Email sent to: " + emailList[i]);
+    }
+    
 }
 
-schedule.scheduleJob('5 * * * * *',testFunction);
-// //email information
-// const options = {
-//     from: "HHM-RMSM@outlook.com",
-//     to: "mkang987@gmail.com",
-//     subject: "Your daily habit tasks!",
-//     text: "testing ENV"
-// };
+function goodMorning() {
 
-//sends initial email in morning
-// schedule.scheduleJob('* 8 * * *', () => {
-//     const options = {
-//         from: "HHM-RMSM@outlook.com",
-//         to: "mkang987@gmail.com",
-//         subject: "Your daily habit tasks!",
-//         text: "good morning loser"
-//     };
+}
 
-//     transporter.sendMail(options, function(err ,info) {
-//         if(err) {
-//             console.log(err);
-//             return;
-//         }
-//         console.log(info.response);
-//     });
-// })
+function goodEvening() {
+
+}
 
 
-// //sends the email and console logs it
-// transporter.sendMail(options, function(err ,info) {
-//     if(err) {
-//         console.log(err);
-//         return;
-//     }
-//     console.log(info.response);
-// });
+function init() {
+    //Runs at 8AM every day
+    schedule.scheduleJob('0 8 * * *', goodMorning);
+
+    //runs at 6PM every day
+    schedule.scheduleJob('0 18 * * *', goodEvening);
+
+    //runs every minute
+    schedule.scheduleJob('* * * * *',getUsers);
+}
+
+
+async function getUsers() {
+        var result = await User.find({notify:true})
+        var userList = [];
+        for(var i = 0; i < result.length;i++) {
+            userList.push(result[i].email);
+        }
+        console.log("getUser: " + userList);
+
+    for(var i = 0; i < userList.length; i++) {
+        const options = {
+            from: "HHM-RMSM@outlook.com",
+            to: userList[i],
+            subject: "Your daily habit tasks!",
+            text: "good morning loser"
+        };
+    
+        transporter.sendMail(options, function(err ,info) {
+            if(err) {
+                console.log(err);
+                return;
+            }
+            console.log(info.response);
+        });
+
+        console.log("Email sent to: " + userList[i]);
+    }
+    }
