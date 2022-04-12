@@ -36,12 +36,24 @@ body {
   background: var(--color-bg);
   color: var(--color-white);
   line-height: 1.7;
-  background-image: url(../src/assets/Home.jpg);
+
   background-repeat: no-repeat;
  
 }
 
 /*GENERAL STUFF, LET's GO BABY  */
+.fixer {
+  display: flex;
+  flex-direction: column;
+  background-image: url(../src/assets/Home.jpg);
+ margin-top: 2rem;
+ padding-bottom: 5rem;
+ margin-bottom: -7rem;
+  
+  
+
+}
+
 
 .container {
   width: var(--containter-width-lg);

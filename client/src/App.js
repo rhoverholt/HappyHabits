@@ -47,6 +47,7 @@ function App() {
       <Router>
         <div className="flex-column justify-flex-start min-100-vh">
           <Navbar />
+          <div className="fixer">
           <Header />
           <div className="container">
             <Routes>
@@ -57,6 +58,7 @@ function App() {
               <Route path="/habit" element={<Habit />} />
               <Route path="/dashboard" element={<Dashboard />} />
             </Routes>
+          </div>
           </div>
           <Footer />
         </div>
