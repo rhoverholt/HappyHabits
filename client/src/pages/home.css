@@ -1,0 +1,11 @@
+.Homepage {
+
+    background-image: url(../assets/faceless.jpg);
+    background-size: contain;
+    height: 150rem;
+    width: cover;
+    padding: 4rem;
+    background-repeat: no-repeat;
+
+
+}
