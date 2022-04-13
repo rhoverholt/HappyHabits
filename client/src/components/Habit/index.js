@@ -16,8 +16,8 @@ const Habit = (props) => {
       datasets: [
         {
           label: "Number of Times Completed",
-          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f", "#c45850"],
-          data: [2478,5267,734, 433]
+          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f", "#c45850", "#e8c3b9"],
+          data: [2478,5267,734, 5998,433]
         }
       ]
     },
