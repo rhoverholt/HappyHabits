@@ -89,3 +89,8 @@ animation: .8s shake infinite alternate;
   display: none;
   visibility: hidden;
 }
+
+.chart-container {
+  
+  width: 100%;
+}

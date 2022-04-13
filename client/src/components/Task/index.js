@@ -78,7 +78,7 @@ const Task = (props) => {
 
   return (
     <div className="task-card">
-      <div className="task-title">{props.value.description}</div>
+      <div className="task-title">{props.index+1}. {props.value.description}</div>
       <div className="task-body">
         {props.value.frequency === "Daily" ? (
           <div className="task-input">
