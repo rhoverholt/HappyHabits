@@ -535,51 +535,5 @@
       }
     ],
     "notify": false
-  },
-  {
-    "username": "mkang987",
-    "email": "mkang987@gmail.com",
-    "password": "password1",
-    "habits": [
-      {
-        "title": "Sleep Early",
-        "status": "Active",
-        "notes": "I'm not sure how to progress my first habit!",
-        "tasks": [
-          {
-            "description": "Task 1",
-            "frequency": "Daily"
-          },
-          {
-            "description": "Task 2",
-            "frequency": "Weekly"
-          }
-        ]
-      }
-    ],
-    "notify" : false
-  },
-  {
-    "username": "alex kang",
-    "email": "ghengiskhang@gmail.com",
-    "password": "password1",
-    "habits": [
-      {
-        "title": "Sleep Early",
-        "status": "Active",
-        "notes": "I'm not sure how to progress my first habit!",
-        "tasks": [
-          {
-            "description": "Task 1",
-            "frequency": "Daily"
-          },
-          {
-            "description": "Task 2",
-            "frequency": "Weekly"
-          }
-        ]
-      }
-    ],
-    "notify" : false
   }
 ]
