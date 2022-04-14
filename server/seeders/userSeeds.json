@@ -126,7 +126,8 @@
           }
         ]
       }
-    ]
+    ],
+    "notify": true
   },
   {
     "username": "Melissa Donato",
@@ -255,7 +256,8 @@
           }
         ]
       }
-    ]
+    ],
+    "notify": false
   },
   {
     "username": "Sarah Labrot Lietz",
@@ -401,7 +403,8 @@
           }
         ]
       }
-    ]
+    ],
+    "notify": false
   },
   {
     "username": "Rich Overholt",
@@ -530,7 +533,8 @@
           }
         ]
       }
-    ]
+    ],
+    "notify": false
   },
   {
     "username": "mkang987",
@@ -553,7 +557,7 @@
         ]
       }
     ],
-    "notify" : true
+    "notify" : false
   },
   {
     "username": "alex kang",
@@ -576,6 +580,6 @@
         ]
       }
     ],
-    "notify" : true
+    "notify" : false
   }
 ]

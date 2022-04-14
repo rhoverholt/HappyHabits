@@ -20,39 +20,7 @@ console.log(EMAIL);
 
 db.once('open', () => {
     init();
-  })
-
-function testFunction() {
-    var emailList = getUsers();
-    console.log("test function: " + emailList);
-    for(var i = 0; i < emailList.length; i++) {
-        const options = {
-            from: "HHM-RMSM@outlook.com",
-            to: emailList[i],
-            subject: "Your daily habit tasks!",
-            text: "good morning loser"
-        };
-    
-        transporter.sendMail(options, function(err ,info) {
-            if(err) {
-                console.log(err);
-                return;
-            }
-            console.log(info.response);
-        });
-
-        console.log("Email sent to: " + emailList[i]);
-    }
-    
-}
-
-function goodMorning() {
-
-}
-
-function goodEvening() {
-
-}
+})
 
 
 function init() {
@@ -62,25 +30,34 @@ function init() {
     //runs at 6PM every day
     schedule.scheduleJob('0 18 * * *', goodEvening);
 
-    //runs every minute
-    schedule.scheduleJob('* * * * *',getUsers);
+    //runs every minute for testing purposes.
+    //schedule.scheduleJob('* * * * *',testFunction);
 }
 
+async function testFunction() {
+    var results = await User.find({ notify: true });
+    var userList = [];
+    var habitsResult= [];
+    var habitsTitle = [];
+    for(var l = 0; l < results.length; l++) {
+        userList.push(results[l].email);
+        habitsResult.push(results[l].habits);
+    }
+    console.log(habitsResult);
 
-async function getUsers() {
-        var result = await User.find({notify:true})
-        var userList = [];
-        for(var i = 0; i < result.length;i++) {
-            userList.push(result[i].email);
-        }
-        console.log("getUser: " + userList);
+    for(var i = 0; i <= habitsResult.length; i++) {
+        habitsTitle.push(habitsResult[0][i].title);
+    }
+    console.log(habitsTitle);
 
     for(var i = 0; i < userList.length; i++) {
         const options = {
             from: "HHM-RMSM@outlook.com",
             to: userList[i],
-            subject: "Your daily habit tasks!",
-            text: "good morning loser"
+            subject: "Daily Daily Tasks",
+            text: `Good morning!
+            Here is a list of your daily tasks!
+            - ${habitsTitle}`
         };
     
         transporter.sendMail(options, function(err ,info) {
@@ -93,4 +70,70 @@ async function getUsers() {
 
         console.log("Email sent to: " + userList[i]);
     }
+}
+
+async function goodMorning() {
+    var results = await User.find({ notify: true });
+    var userList = [];
+    var habitsResult= [];
+    var habitsTitle = [];
+    for(var l = 0; l < results.length; l++) {
+        userList.push(results[l].email);
+        habitsResult.push(results[l].habits);
     }
+    console.log(habitsResult);
+
+    for(var i = 0; i <= habitsResult.length; i++) {
+        habitsTitle.push(habitsResult[0][i].title);
+    }
+    console.log(habitsTitle);
+
+    for(var i = 0; i < userList.length; i++) {
+        const options = {
+            from: "HHM-RMSM@outlook.com",
+            to: userList[i],
+            subject: "Daily Daily Tasks",
+            text: `Good morning!
+            Here is a list of your daily tasks!
+            - ${habitsTitle}`
+        };
+    
+        transporter.sendMail(options, function(err ,info) {
+            if(err) {
+                console.log(err);
+                return;
+            }
+            console.log(info.response);
+        });
+
+        console.log("Email sent to: " + userList[i]);
+    }
+}
+
+async function goodEvening() {
+    var results = await User.find({ notify: true });
+    var userList = [];
+    for(var l = 0; l < results.length; l++) {
+        userList.push(results[l].email);
+    }
+    console.log(results)
+
+    for(var i = 0; i < userList.length; i++) {
+        const options = {
+            from: "HHM-RMSM@outlook.com",
+            to: userList[i],
+            subject: "Daily Reminder!",
+            text: "Just a daily reminder to log in and check off your daily tasks!"
+        };
+    
+        transporter.sendMail(options, function(err ,info) {
+            if(err) {
+                console.log(err);
+                return;
+            }
+            console.log(info.response);
+        });
+
+        console.log("Email sent to: " + userList[i]);
+    }
+}
