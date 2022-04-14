@@ -1,0 +1,99 @@
+.dashboard-title {
+  color: var(--color-primary-variant);
+  font-size: 3rem;
+  text-align: center;
+  background: linear-gradient(45deg, transparent, var(--color-bg-variant), transparent);
+  display: grid;
+  place-items: center;
+  border-radius: 1/1;
+ 
+}
+
+.dashboard-subtext {
+text-align: center;
+background-image: linear-gradient(45deg, 
+var(--color-bg-variant), 
+var(--color-bg),
+var(--color-primary),
+var(--color-primary-variant));
+animation: .8s shake infinite alternate;
+}
+
+@keyframes shake {
+0% { transform: skewX(-15deg); }
+5% { transform: skewX(15deg); }
+10% { transform: skewX(-15deg); }
+15% { transform: skewX(15deg); }
+20% { transform: skewX(0deg); }
+100% { transform: skewX(0deg); }  
+}
+
+
+
+@keyframes shake {
+  0% { transform: skewX(-15deg); }
+  5% { transform: skewX(15deg); }
+  10% { transform: skewX(-15deg); }
+  15% { transform: skewX(15deg); }
+  20% { transform: skewX(0deg); }
+  100% { transform: skewX(0deg); }  
+
+}
+
+.habit-container {
+  display: flex;
+  
+  flex-wrap: wrap;
+  justify-content: center;
+  
+}
+.habit-card {
+  background: linear-gradient(45deg, transparent, var(--color-bg-variant), transparent);
+  padding: 2rem 3rem;
+  border-radius: 2rem;
+  border: 4px solid transparent;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  text-align: center;
+  width: 600px;
+  margin-top: 2rem;
+}
+
+.habit-card:hover {
+  background: transparent;
+  border-color: var(--color-primary-variant);
+  cursor: default;
+}
+
+.habit-title {
+  font-size: 1rem;
+  background: var(--color-primary-variant);
+  border-radius: 2rem;
+  padding: 0 2rem;
+}
+
+.habit-link {
+  color: white;
+}
+
+.habit-link:hover {
+  color: var(--color-bg);
+  cursor: pointer;
+}
+
+.habit-body {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Visible {
+}
+.Hidden {
+  display: none;
+  visibility: hidden;
+}
+
+.chart-container {
+  
+  width: 100%;
+}

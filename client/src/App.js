@@ -14,8 +14,9 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Navbar from './components/Navbar/Navbar';
-import Habit from './pages/Habit';
+import Navbar from "./components/Navbar/Navbar";
+import Habit from "./pages/Habit";
+
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -46,7 +47,8 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div className="flex-column justify-flex-start min-100-vh">
-        <Navbar />
+          <Navbar />
+          <div className="fixer">
           <Header />
           <div className="container">
             <Routes>
@@ -54,9 +56,11 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/habit/:id" element={<Habit />} />
-              <Route path="/habit" element={<Habit />} />              
+              <Route path="/habit" element={<Habit />} />
               <Route path="/dashboard" element={<Dashboard />} />
+             
             </Routes>
+          </div>
           </div>
           <Footer />
         </div>

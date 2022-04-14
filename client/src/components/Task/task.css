@@ -1,0 +1,44 @@
+.task-card {
+  margin: 1rem;
+  /* }
+/* Look into changing this kinda funky */
+  /* .task-title { */
+  background: var(--color-bg-variant);
+  padding: 2rem;
+  border-radius: 2rem;
+  border: 1px solid transparent;
+  width: 200px;
+}
+
+.task-title {
+  font-size: 1rem;
+  color: var(--color-bg);
+}
+
+.task-body {
+  display: grid;
+  margin-top: 1rem;
+}
+
+.task-input {
+  display: flex;
+  justify-content: space-between;
+  /* gap: 2rem; */
+  margin-inline: auto;
+}
+
+.task-label {
+  font-size: 1rem;
+}
+
+.tl-daily {
+  width: 1.5rem;
+}
+
+.checkbox {
+  width: 1rem;
+}
+
+label input {
+  text-align: center;
+}
