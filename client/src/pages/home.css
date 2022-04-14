@@ -1,10 +1,11 @@
 .Homepage {
+display: flex;
 
     background-image: url(../assets/faceless.jpg);
-    background-size: contain;
-    height: 150rem;
-    width: cover;
-    padding: 4rem;
+    background-size: cover;
+    height: 100rem;
+    width: 100%;
+   
     background-repeat: no-repeat;
 
 
