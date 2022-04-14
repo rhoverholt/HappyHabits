@@ -285,6 +285,23 @@
             ]
           },
           {
+            "description": "Do not take a nap during the day",
+            "frequency": "Daily",
+            "startDate": "4/6/2022",
+            "endDate": "4/20/2022",
+            "taskInstances": [
+              { "dueDate": "4/6/2022" },
+              { "dueDate": "4/7/2022" },
+              { "dueDate": "4/9/2022" },
+              { "dueDate": "4/10/2022" },
+              { "dueDate": "4/11/2022" },
+              { "dueDate": "4/13/2022" },
+              { "dueDate": "4/15/2022" },
+              { "dueDate": "4/16/2022" }
+            ]
+          },
+          
+          {
             "description": "Turn off all electronics by 10 PM",
             "frequency": "Daily",
             "startDate": "4/6/2022",

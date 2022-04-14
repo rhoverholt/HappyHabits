@@ -33,32 +33,32 @@ html {
 }
 body {
   font-family: "Poppins", sans-serif;
+  height: 100vh;
   background: var(--color-bg);
   color: var(--color-white);
   line-height: 1.7;
-
+  background-image: url(../src/assets/Home.jpg);
+ background-size: cover;
   background-repeat: no-repeat;
  
 }
 
-/*GENERAL STUFF, LET's GO BABY  */
-.fixer {
+/* GENERAL STUFF, LET's GO BABY  */
+/* .fixer {
   display: flex;
   flex-direction: column;
-  background-image: url(../src/assets/Home.jpg);
+ 
  margin-top: 2rem;
  padding-bottom: 5rem;
  margin-bottom: -7rem;
  height: 100%;
-  
-  
-
-}
+} */
 
 
 .container {
   width: var(--containter-width-lg);
   margin: 0 auto;
+  margin-bottom: 1rem;
 
 }
 

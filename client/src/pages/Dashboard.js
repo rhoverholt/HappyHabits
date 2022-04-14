@@ -3,6 +3,7 @@ import { useQuery } from "@apollo/client";
 import Habit from "../components/Habit";
 import { QUERY_ME } from "../utils/queries";
 
+
 const Dashboard = () => {
   const { loading, data } = useQuery(QUERY_ME);
 

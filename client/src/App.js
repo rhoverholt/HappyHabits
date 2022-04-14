@@ -17,6 +17,7 @@ import Footer from "./components/Footer";
 import Navbar from "./components/Navbar/Navbar";
 import Habit from "./pages/Habit";
 
+
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -57,6 +58,7 @@ function App() {
               <Route path="/habit/:id" element={<Habit />} />
               <Route path="/habit" element={<Habit />} />
               <Route path="/dashboard" element={<Dashboard />} />
+             
             </Routes>
           </div>
           </div>
