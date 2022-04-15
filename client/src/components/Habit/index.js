@@ -1,53 +1,168 @@
-import "./habit.css";
-import Task from "../Task";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import PlotChart from '../TestChart';
+import PlotChart from "../PlotChart";
+import { useMutation } from "@apollo/client";
+import {
+  REMOVE_TASKINSTANCE,
+  CREATE_TASKINSTANCE,
+} from "../../utils/mutations";
+import "./task.css";
+import "./habit.css";
 
+import {
+  getWeekSunday,
+  getWeeklyInstanceArray,
+  isComplete,
+  getCountActiveTasks,
+} from "./taskDateFuns";
 
 const Habit = (props) => {
-  if (!props.value) return;
+  let habit = JSON.parse(JSON.stringify(props.value));
+  const [weeklyDt] = useState(getWeekSunday());
 
-  const Labels = props.value.tasks.map((task,index)=> index+1)
+  const removeTaskInstance = useMutation(REMOVE_TASKINSTANCE)[0];
+  const createTaskInstance = useMutation(CREATE_TASKINSTANCE)[0];
 
-  const barChartConfig = {
-    type: 'bar',
-    data: {
-      labels: Labels,
-      datasets: [
-        {
-          label: "Number of Times Completed",
-          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f", "#c45850", "#e8c3b9"],
-          data: [2478,5267,734, 5998,433]
-        }
-      ]
-    },
-    options: {
-      title: {
-        display: true,
-        text: 'Habit Activity'
-      }
-    }
+  function getChartData() {
+    return {
+      type: "bar",
+      data: {
+        labels: habit.tasks?.map((t, index) => "Task #" + (index + 1)),
+        datasets: [
+          {
+            label: "Number of Times Completed",
+            backgroundColor: habit.tasks?.map(
+              (t, index) =>
+                ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"][
+                  index % 5
+                ]
+            ),
+            data: habit.tasks?.map((task) =>
+              getCountActiveTasks(task, weeklyDt)
+            ),
+          },
+        ],
+      },
+      options: {
+        title: { display: true, text: "Habit Activity" },
+        scales: { y: { max: 7, min: 0 } },
+      },
+    };
   }
 
+  const [chartData, setChartData] = useState(getChartData());
 
+  if (!habit)
+    return (
+      <p>
+        You have no habits in progress{" "}
+        <Link className="habit-link" to="/habit/">
+          click here
+        </Link>{" "}
+        to create one.
+      </p>
+    );
 
+  function handleTaskCheckBox(event) {
+    const hIndex = parseInt(event.target.attributes.habit.value);
+    const tIndex = parseInt(event.target.attributes.task.value);
+    const tiDate = event.target.attributes.value.value;
+    const tiCompleted = event.target.checked;
 
+    let newTiDate = new Date(tiDate);
+    newTiDate = newTiDate.getTime().toString();
+
+    if (tiCompleted) {
+      createTaskInstance({
+        variables: {
+          hIndex,
+          tIndex,
+          input: { dueDate: tiDate.toString(), status: true },
+        },
+      });
+      habit.tasks[tIndex].taskInstances.push({
+        dueDate: newTiDate,
+        status: true,
+      });
+    } else {
+      removeTaskInstance({
+        variables: { hIndex, tIndex, date: tiDate.toString() },
+      });
+      habit.tasks[tIndex].taskInstances = habit.tasks[
+        tIndex
+      ].taskInstances.filter((ti) => ti.dueDate.toString() !== newTiDate);
+    }
+
+    setChartData(getChartData());
+  }
   return (
     <div className="habit-card">
       <div className="habit-title">
         <Link className="habit-link" to={`/habit/${props.index}`}>
-          {props.value.title}
+          {habit.title}
         </Link>
       </div>
       <div className="habit-body">
-      <div className="chart-container">
-       <h3>Bar Chart</h3>
-          <PlotChart data={barChartConfig.data} type={barChartConfig.type} options={barChartConfig.options}/>
-    </div>
-        {/* <Task value={props.value.tasks[0]} /> */}
-        {props.value?.tasks.map((task, index) => {
-          return <Task key={index} habitIndex={props.index} index={index} value={task} />;
-          //   return <p>Here's a task </p>;
+        <div className="chart-container">
+          <PlotChart
+            data={chartData.data}
+            type={chartData.type}
+            options={chartData.options}
+          />
+        </div>
+        {habit?.tasks.map((task, tIndex) => {
+          return (
+            <div key={tIndex} className="task-card">
+              <div className="task-title">
+                {tIndex + 1}. {task.description}
+              </div>
+              <div className="task-body">
+                {task.frequency === "Daily" ? (
+                  <div className="task-input">
+                    {
+                      /* fancy way to create 7 checkboxes, 1 for each Day of Week (dOw) */
+                      getWeeklyInstanceArray(weeklyDt).map(({ dow, date }) => {
+                        return (
+                          <label key={dow} className="task-label tl-daily">
+                            {dow}
+                            <input
+                              type="checkbox"
+                              key={dow}
+                              value={date}
+                              task={tIndex}
+                              habit={props.index}
+                              defaultChecked={isComplete(
+                                task.taskInstances,
+                                date
+                              )}
+                              onChange={handleTaskCheckBox}
+                            ></input>
+                          </label>
+                        );
+                      })
+                    }
+                  </div>
+                ) : task.frequency === "Weekly" ? (
+                  <label className="task-label tl-weekly">
+                    Weekly
+                    <input
+                      type="checkbox"
+                      value={new Date(weeklyDt)}
+                      task={tIndex}
+                      habit={props.index}
+                      defaultChecked={isComplete(
+                        task.taskInstances,
+                        new Date(weeklyDt)
+                      )}
+                      onChange={handleTaskCheckBox}
+                    ></input>
+                  </label>
+                ) : (
+                  ""
+                )}
+              </div>
+            </div>
+          );
         })}
       </div>
     </div>
