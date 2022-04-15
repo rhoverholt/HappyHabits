@@ -178,23 +178,23 @@ const resolvers = {
     },
 
     //remove Task from habit
-    removeTask: async (parent, { index, taskId }, context) => {
-      console.log("remove task called: ", index, taskId);
+    removeTask: async (parent, { index, taskIndex }, context) => {
+      console.log("remove task called: ", index, taskIndex);
 
       if (context.user) {
         if (index < 0)
-          throw new AuthenticationError("Cannot add task to invalid habit");
+          throw new AuthenticationError("Cannot remove task to invalid habit");
 
         const user = await User.findOne({
           _id: context.user._id,
         }).select("-password");
 
         if (user?.habits?.length < index + 1)
-          throw new AuthenticationError("Cannot add task to invalid habit");
+          throw new AuthenticationError("Cannot remove task to invalid habit");
 
-        user.habits[index]?.tasks?.filter((task) => {
-          console.log(task.id, taskId !== task.id);
-          return taskId !== task.id;
+        user.habits[index].tasks = user.habits[index]?.tasks?.filter((task,index) => {
+          console.log(index, taskIndex !== index);
+          return taskIndex !== index;
         });
 
         user.save();

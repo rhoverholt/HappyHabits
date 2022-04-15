@@ -75,8 +75,8 @@ export const REMOVE_TASKINSTANCE = gql`
 //deletes task data
 
 export const REMOVE_TASK = gql`
-  mutation removeTask($index: String!, $taskId: ID!) {
-    removeTask(index: $index, taskId: $taskId) {
+  mutation removeTask($index: String!, $taskIndex: Int!) {
+    removeTask(index: $index, taskIndex: $taskIndex) {
       _id
       username
       email

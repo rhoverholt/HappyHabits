@@ -30,7 +30,8 @@ const [formState, setFormState] =  useState({habitTitle:``,
         description:``,
         frequency:``,
         startDate:``,
-        endDate:``});
+        endDate:``,
+        taskIndex:``});
 
 
 let userData= data?.me || {};
@@ -122,7 +123,7 @@ else if(id){
 
   //Create a task
   const handleTaskFormSubmit = async (event) => {
-    
+    event.preventDefault();
     const taskToSave = {
         description:formState.description,
         frequency:formState.frequency,
@@ -130,38 +131,40 @@ else if(id){
         endDate:formState.endDate,
 
     }
-    const taskIndex = {
-      taskIndex:formState.taskIndex}
+    let myTaskIndex = formState.taskIndex;
+    let myTaskIndexStr = JSON.stringify(myTaskIndex);
 
-// if(taskIndex===-1){
 
-//   try {
-//     const { task } = await createTask({
-//       variables: { 
-//           index: id,
-//           task:taskToSave},
-//     });
-
-//   } catch (e) {
-//     console.error(e);
-//   }
-
-// }
-// else if(taskIndex<-1){
+if(myTaskIndexStr===`""`){
 
   try {
-    const { task } = await updateTask({
+    const { task } = await createTask({
       variables: { 
           index: id,
-          taskIndex: taskIndex.taskIndex,
           task:taskToSave},
     });
 
   } catch (e) {
     console.error(e);
   }
-// }
-    
+
+}
+else {
+
+  try {
+    const { task } = await updateTask({
+      variables: { 
+          index: id,
+          taskIndex: myTaskIndexStr,
+          task:taskToSave},
+    });
+
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+console.log(myTaskIndexStr);
 
 setFormState(
         {
@@ -171,18 +174,21 @@ setFormState(
         endDate:``,
         taskIndex: ``} );
 
+  
+
   if(document.getElementById("addTaskForm").className="Visible"){
     document.getElementById("addTaskForm").setAttribute("class","Hidden");
     visibility = "btn-block btn-danger Visible btn btn-primary";
     document.getElementById("newTaskBtn").setAttribute("class",visibility);
 
 };
+
         };
 
 
   const handleDeleteTask = async (taskIndex) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
-
+    // const taskIndexString = JSON.parse(taskIndex);
     if (!token) {
       return false;
     }
@@ -191,7 +197,7 @@ setFormState(
 
       await removeTask({variables: {
         index: id,
-        taskIndex}})
+        taskIndex:taskIndex}})
 
 
       // upon success, remove task from page
@@ -247,6 +253,14 @@ setFormState(
     visibility = "btn-block btn-danger Hidden btn btn-primary"
     document.getElementById("newTaskBtn").setAttribute("class",visibility);
 
+    setFormState(
+      {
+      description:``,
+      frequency:``,
+      startDate:``,
+      endDate:``,
+      taskIndex: ``} );
+
   };
   
 
@@ -266,6 +280,7 @@ return (
                   placeholder="Habit Title"
                   name="habitTitle"
                   type="text"
+                  required
                   value={formState.habitTitle}
                   onChange={handleChange}
                 />
@@ -289,22 +304,24 @@ return (
                     placeholder="Task Description"
                     name="description"
                     type="text"
+                    required
                     value={formState.description}
                     onChange={handleChange}
                     />
-                    <input
-                    className="form-input"
-                    placeholder="Task Frequency"
+                    <select 
+                    className="form-select"
                     name="frequency"
-                    type="text"
-                    value={formState.frequency}
-                    onChange={handleChange}
-                    />
+                    value={formState.frequency} 
+                    onChange={handleChange}>
+                      <option value="Daily">Daily</option>
+                      <option value="Weekly">Weekly</option>
+                    </select>
                     <input
                     className="form-input"
                     placeholder="Task Start Date"
                     name="startDate"
                     type="date"
+                    required
                     value={formState.startDate}
                     onChange={handleChange}
                     />
@@ -313,6 +330,7 @@ return (
                     placeholder="TaskEndDate"
                     name="endDate"
                     type="date"
+                    required
                     value={formState.endDate}
                     onChange={handleChange}
                     />
