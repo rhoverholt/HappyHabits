@@ -7,6 +7,7 @@ const typeDefs = gql`
     email: String
     password: String
     habits: [Habit]
+    notify: Boolean
   }
   type Habit {
     _id: ID

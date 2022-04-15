@@ -102,6 +102,13 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
 
+    // updateNotify: async(parent, { _id, notify }) => {
+    //   const notify = await User.findOneAndUpdate(
+    //     { _id },
+    //     { }
+    //   )
+    // },
+
     // update a task
     updateTask: async (parent, { index, taskIndex, input }, context) => {
       console.log("Update task called: ", index, taskIndex, input);

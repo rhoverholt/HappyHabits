@@ -24,7 +24,15 @@ const AppNavbar = () => {
                   </Nav.Link>
                   
                   <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
+
+                  <label className="navbar-check">
+                    Notifications
+                    <input
+                    type="checkbox"
+                   ></input>
+                    </label>
                 </>
+                
               ) : (
                 <></>
               )}
