@@ -3,10 +3,11 @@ import { useQuery, useMutation } from '@apollo/client';
 import { Jumbotron, Container, CardColumns, Card, Button } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import {QUERY_ME} from '../utils/queries';
-import {CREATE_HABIT, REMOVE_TASK, CREATE_TASK, UPDATE_HABIT} from '../utils/mutations';
+import {CREATE_HABIT, REMOVE_TASK, CREATE_TASK, UPDATE_HABIT, UPDATE_TASK} from '../utils/mutations';
 
 
 import Auth from "../utils/auth";
+import context from 'react-bootstrap/esm/AccordionContext';
 
 const Habit = () => {
 const { loading, data } = useQuery(QUERY_ME);
@@ -16,20 +17,26 @@ if(!id){
     visibility = "btn-block btn-danger Hidden btn btn-primary"
 
 } 
+// let myTaskIndex = '';
+
 
 const [createHabit, { error, habit }] = useMutation(CREATE_HABIT);
 const [createTask, {  task }] = useMutation(CREATE_TASK);
 const [removeTask, {}] = useMutation(REMOVE_TASK);
 const [updateHabit, {}] = useMutation(UPDATE_HABIT);
+const [updateTask, {}] = useMutation(UPDATE_TASK);
 const [formState, setFormState] =  useState({habitTitle:``,
         notes:``,
         description:``,
         frequency:``,
         startDate:``,
-        endDate:``});
+        endDate:``,
+        taskIndex:``});
+
 
 let userData= data?.me || {};
 let addTaskForm=``;
+
 
 
 useEffect(() => {
@@ -49,14 +56,24 @@ useEffect(() => {
         description:``,
         frequency:``,
         startDate:``,
-        endDate:``} :
+        endDate:``,
+        taskIndex: ``} :
             {habitTitle:``,
             notes:``,
             description:``,
             frequency:``,
             startDate:``,
-            endDate:``}
+            endDate:``,
+            taskIndex: ``}
     )}, [data]);
+
+
+    function cleanDate(dateTime) {
+      let d = new Date(parseInt(dateTime));
+      return new Date( // convert input date-time to a simple date with no time
+        d.getMonth() + 1 + "/" + d.getDate() + "/" + d.getFullYear()
+      );
+    }
 
 
   const handleChange = (event) => {
@@ -72,6 +89,7 @@ useEffect(() => {
     event.preventDefault();
     const habitToSave = {
     title:formState.habitTitle,
+    notes:formState.notes,
 }
 
 if (!id){
@@ -106,7 +124,6 @@ else if(id){
   //Create a task
   const handleTaskFormSubmit = async (event) => {
     event.preventDefault();
-
     const taskToSave = {
         description:formState.description,
         frequency:formState.frequency,
@@ -114,38 +131,64 @@ else if(id){
         endDate:formState.endDate,
 
     }
+    let myTaskIndex = formState.taskIndex;
+    let myTaskIndexStr = JSON.stringify(myTaskIndex);
 
-    if(document.getElementById("addTaskForm").className="Visible"){
-        document.getElementById("addTaskForm").setAttribute("class","Hidden");
-            visibility = "btn-block btn-danger Visible btn btn-primary";
-            document.getElementById("newTaskBtn").setAttribute("class",visibility);
 
-    }
+if(myTaskIndexStr===`""`){
 
-    try {
-      const { task } = await createTask({
-        variables: { 
-            index: id,
-            task:taskToSave},
-      });
+  try {
+    const { task } = await createTask({
+      variables: { 
+          index: id,
+          task:taskToSave},
+    });
 
-    } catch (e) {
-      console.error(e);
-    }
+  } catch (e) {
+    console.error(e);
+  }
+
+}
+else {
+
+  try {
+    const { task } = await updateTask({
+      variables: { 
+          index: id,
+          taskIndex: myTaskIndexStr,
+          task:taskToSave},
+    });
+
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+console.log(myTaskIndexStr);
 
 setFormState(
         {
         description:``,
         frequency:``,
         startDate:``,
-        endDate:``} );
+        endDate:``,
+        taskIndex: ``} );
+
+  
+
+  if(document.getElementById("addTaskForm").className="Visible"){
+    document.getElementById("addTaskForm").setAttribute("class","Hidden");
+    visibility = "btn-block btn-danger Visible btn btn-primary";
+    document.getElementById("newTaskBtn").setAttribute("class",visibility);
+
+};
 
         };
 
 
-  const handleDeleteTask = async (taskId) => {
+  const handleDeleteTask = async (taskIndex) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
-
+    // const taskIndexString = JSON.parse(taskIndex);
     if (!token) {
       return false;
     }
@@ -154,7 +197,7 @@ setFormState(
 
       await removeTask({variables: {
         index: id,
-        taskId: taskId}})
+        taskIndex:taskIndex}})
 
 
       // upon success, remove task from page
@@ -164,23 +207,43 @@ setFormState(
     }
   };
 
-  const handleEditTask = async (taskId) => {
-    const token = Auth.loggedIn() ? Auth.getToken() : null;
+  const handleEditTask = async (clickedTaskIndex, taskDesc, taskFreq, taskStart, taskEnd) => {
 
-    if (!token) {
-      return false;
+    let updatedStart = cleanDate(taskStart).toLocaleDateString('en-CA');
+    let updatedEnd = cleanDate(taskEnd).toLocaleDateString('en-CA');
+    // myTaskIndex=clickedTaskIndex;
+
+    console.log(clickedTaskIndex)
+
+
+
+    setFormState(
+      {
+      description:taskDesc,
+      frequency:taskFreq,
+      startDate:updatedStart,
+      endDate:updatedEnd,
+      taskIndex: clickedTaskIndex} );
+
+      const thisTaskToSave = {
+        description:formState.description,
+        frequency:formState.frequency,
+        startDate:formState.startDate,
+        endDate:formState.endDate,
+        taskIndex: formState.taskIndex
+
     }
 
-    try {
+      console.log(thisTaskToSave);
 
-    //   await updateTask({variables: {taskId: taskId}})
+      // addTaskForm.setAttribute("class","Visible");
+      visibility = "btn-block btn-danger Hidden btn btn-primary"
+      document.getElementById("newTaskBtn").setAttribute("class",visibility);
+      let addTaskForm = document.getElementById("addTaskForm");
+      addTaskForm.setAttribute("class","Visible");
 
 
-    //   // upon success, remove task from localStorage
-    //   removeTaskId(taskId);
-    } catch (err) {
-      console.error(err);
-    }
+
   };
 
 
@@ -189,6 +252,14 @@ setFormState(
     addTaskForm.setAttribute("class","Visible");
     visibility = "btn-block btn-danger Hidden btn btn-primary"
     document.getElementById("newTaskBtn").setAttribute("class",visibility);
+
+    setFormState(
+      {
+      description:``,
+      frequency:``,
+      startDate:``,
+      endDate:``,
+      taskIndex: ``} );
 
   };
   
@@ -209,6 +280,7 @@ return (
                   placeholder="Habit Title"
                   name="habitTitle"
                   type="text"
+                  required
                   value={formState.habitTitle}
                   onChange={handleChange}
                 />
@@ -232,22 +304,24 @@ return (
                     placeholder="Task Description"
                     name="description"
                     type="text"
+                    required
                     value={formState.description}
                     onChange={handleChange}
                     />
-                    <input
-                    className="form-input"
-                    placeholder="Task Frequency"
+                    <select 
+                    className="form-select"
                     name="frequency"
-                    type="text"
-                    value={formState.frequency}
-                    onChange={handleChange}
-                    />
+                    value={formState.frequency} 
+                    onChange={handleChange}>
+                      <option value="Daily">Daily</option>
+                      <option value="Weekly">Weekly</option>
+                    </select>
                     <input
                     className="form-input"
                     placeholder="Task Start Date"
                     name="startDate"
                     type="date"
+                    required
                     value={formState.startDate}
                     onChange={handleChange}
                     />
@@ -256,7 +330,16 @@ return (
                     placeholder="TaskEndDate"
                     name="endDate"
                     type="date"
+                    required
                     value={formState.endDate}
+                    onChange={handleChange}
+                    />
+                    <input
+                    className="Hidden form-input"
+                    placeholder="taskIndex"
+                    name="taskIndex"
+                    type="text"
+                    value={formState.taskIndex}
                     onChange={handleChange}
                     />
                     <button
@@ -289,17 +372,17 @@ return (
                 </button>
               </form>
               </div>
-            {userData.habits[id]?.tasks.map((task) => {
+            {userData.habits[id]?.tasks.map((task,index) => {
             return (
 
 
-              <Card key={task.taskId} border='dark'>
+              <Card key={index} border='dark'>
                 <Card.Body>
                   <Card.Title>{task.description}</Card.Title>
-                  <Button className='btn-block btn-danger' onClick={() => handleEditTask(task.taskId)}>
+                  <Button className='btn-block btn-danger' onClick={() => handleEditTask(index, task.description, task.frequency, task.startDate, task.endDate)}>
                     Edit
                   </Button>
-                  <Button className='btn-block btn-danger' onClick={() => handleDeleteTask(task.taskId)}>
+                  <Button className='btn-block btn-danger' onClick={() => handleDeleteTask(index)}>
                     Delete
                   </Button>
                 </Card.Body>
