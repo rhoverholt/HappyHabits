@@ -3,13 +3,10 @@ import { useQuery, useMutation } from '@apollo/client';
 import { Jumbotron, Container, CardColumns, Card, Button } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import {QUERY_ME} from '../utils/queries';
-<<<<<<< HEAD
-import {CREATE_HABIT, REMOVE_TASK, CREATE_TASK, UPDATE_HABIT} from '../utils/mutations';
-import './habit.css'
-=======
-import {CREATE_HABIT, REMOVE_TASK, CREATE_TASK, UPDATE_HABIT, UPDATE_TASK} from '../utils/mutations';
 
->>>>>>> 4928f378a2955b82d7b7dcfa375c1b91b3855fbe
+import {CREATE_HABIT, REMOVE_TASK, CREATE_TASK, UPDATE_HABIT, UPDATE_TASK} from '../utils/mutations';
+import './habit.css';
+
 
 import Auth from "../utils/auth";
 import context from 'react-bootstrap/esm/AccordionContext';
