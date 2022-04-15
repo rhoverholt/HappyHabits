@@ -21,6 +21,10 @@ const userSchema = new Schema({
     minlength: 5,
   },
   habits: [habitSchema],
+  notify: {
+    type: Boolean,
+    default: false
+  }
 });
 
 userSchema.pre("save", async function (next) {
