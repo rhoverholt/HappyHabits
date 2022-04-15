@@ -24,29 +24,29 @@ const Habit = (props) => {
   const createTaskInstance = useMutation(CREATE_TASKINSTANCE)[0];
 
   function getChartData() {
-    const type = "bar";
-    const labels = habit.tasks?.map((t, index) => index + 1);
-    const backgroundColor = habit.tasks?.map(
-      (t, index) =>
-        ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"][index % 5]
-    );
-    const data = habit.tasks?.map((task) =>
-      getCountActiveTasks(task, weeklyDt)
-    );
-
     return {
-      type,
+      type: "bar",
       data: {
-        labels,
+        labels: habit.tasks?.map((t, index) => "Task #" + (index + 1)),
         datasets: [
           {
             label: "Number of Times Completed",
-            backgroundColor,
-            data,
+            backgroundColor: habit.tasks?.map(
+              (t, index) =>
+                ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"][
+                  index % 5
+                ]
+            ),
+            data: habit.tasks?.map((task) =>
+              getCountActiveTasks(task, weeklyDt)
+            ),
           },
         ],
       },
-      options: { title: { display: true, text: "Habit Activity" } },
+      options: {
+        title: { display: true, text: "Habit Activity" },
+        scales: { y: { max: 7, min: 0 } },
+      },
     };
   }
 
