@@ -1,4 +1,7 @@
 .task-card {
+  display:flex;
+  flex-direction: column;
+  align-content:flex-start;
   margin: 1rem;
   /* }
 /* Look into changing this kinda funky */
@@ -16,15 +19,18 @@
 }
 
 .task-body {
-  display: grid;
+  /* display: grid; */
   margin-top: 1rem;
 }
 
 .task-input {
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
+
+color: var(--color-bg);
+ 
   /* gap: 2rem; */
-  margin-inline: auto;
+ 
 }
 
 .task-label {
@@ -35,9 +41,7 @@
   width: 1.5rem;
 }
 
-.checkbox {
-  width: 1rem;
-}
+
 
 label input {
   text-align: center;
