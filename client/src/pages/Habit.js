@@ -9,7 +9,7 @@ import {
 } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { QUERY_ME } from "../utils/queries";
-import "./habit.css";
+
 import {
   CREATE_HABIT,
   REMOVE_TASK,
@@ -17,6 +17,7 @@ import {
   UPDATE_HABIT,
   UPDATE_TASK,
 } from "../utils/mutations";
+import "./habit.css";
 
 import Auth from "../utils/auth";
 import context from "react-bootstrap/esm/AccordionContext";
