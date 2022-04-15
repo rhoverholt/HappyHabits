@@ -17,12 +17,26 @@ header {
     justify-content: center;
 
 }
+
+#signup:hover {
+    color: var(--color-primary-variant);
+}
+#loginbtn:hover {
+    color: var(--color-primary-variant);
+}
 /* THIS IS IF THE TEXT IS TOO HARD TO SEE ON THE LOGIN BUTTON
 #loginbtn {
     background-color: var(--color-bg);
 } */
 
+#submit {
+    color: var(--color-bg);
+}
 
+#submit:hover {
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+}
 
 .Visible{
 

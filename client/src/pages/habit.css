@@ -1,0 +1,48 @@
+.habit-form {
+    margin-left: 8rem;
+    margin-right: 8rem;
+}
+
+#save-habit:hover {
+    color: var(--color-light);
+}
+#save-habit {
+    margin-bottom: 1rem;
+}
+#save-entry:hover {
+    color: var(--color-light);
+}
+
+#newTaskBtn:hover {
+    color: var(--color-light);
+    
+}
+
+#newTaskBtn {
+    margin-left: 8rem;
+    margin-bottom: 1rem;
+    
+}
+
+#addTaskForm {
+    margin-left: 8rem;
+    margin-right: 8rem;
+}
+#taskBtn {
+    margin-bottom: 1rem;
+}
+
+#taskBtn:hover {
+    color: var(--color-light);
+    
+}
+
+#notesEntry {
+    margin-left: 8rem;
+    margin-right: 8rem;
+    margin-bottom: 1rem;
+}
+
+#saveMe:hover {
+    color: var(--color-light);
+}
