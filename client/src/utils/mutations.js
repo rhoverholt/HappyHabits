@@ -75,8 +75,8 @@ export const REMOVE_TASKINSTANCE = gql`
 //deletes task data
 
 export const REMOVE_TASK = gql`
-  mutation removeTask($index: String!, $taskId: ID!) {
-    removeTask(index: $index, taskId: $taskId) {
+  mutation removeTask($index: String!, $taskIndex: Int!) {
+    removeTask(index: $index, taskIndex: $taskIndex) {
       _id
       username
       email
@@ -175,6 +175,30 @@ export const CREATE_TASKINSTANCE = gql`
             dueDate
             status
           }
+        }
+      }
+    }
+  }
+`;
+
+// update task data for a logged in user
+export const UPDATE_TASK = gql`
+  mutation updateTask($index: String!, $taskIndex: String!, $task: taskInput!) {
+    updateTask(index: $index, taskIndex: $taskIndex, input: $task) {
+      _id
+      username
+      email
+      habits {
+        title
+        status
+        notes
+        createdDate
+        completedDate
+        tasks {
+          description
+          frequency
+          startDate
+          endDate
         }
       }
     }

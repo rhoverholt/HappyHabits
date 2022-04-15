@@ -20,9 +20,9 @@ const Header = () => {
           <p className="m-0">Little changes, big results.</p>
         </div>
         <div className="cta">
-          {Auth.loggedIn() ? ""
-            
-           : (
+          {Auth.loggedIn() ? (
+            ""
+          ) : (
             <>
               <Link className="btn" id="loginbtn" to="/login">
                 Login
