@@ -48,7 +48,8 @@ animation: .8s shake infinite alternate;
   
 }
 .habit-card {
-  background: linear-gradient(45deg, transparent, var(--color-bg-variant), transparent);
+  /* background: linear-gradient(45deg, transparent, var(--color-primary), transparent); */
+  background: white;
   padding: 2rem 3rem;
   border-radius: 2rem;
   border: 4px solid transparent;
@@ -96,4 +97,12 @@ animation: .8s shake infinite alternate;
 .chart-container {
   
   width: 100%;
+}
+
+.task-card {
+   background: linear-gradient(45deg, transparent, var(--color-primary), transparent); 
+}
+
+.checkbox {
+  flex-wrap: wrap;
 }

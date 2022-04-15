@@ -379,12 +379,12 @@ return (
 
 
               <Card key={index} border='dark'>
-                <Card.Body>
-                  <Card.Title>{task.description}</Card.Title>
-                  <Button className='btn-block btn-danger' onClick={() => handleEditTask(index, task.description, task.frequency, task.startDate, task.endDate)}>
+                <Card.Body className="whattocall">
+                  <Card.Title className="card-title" >{task.description}</Card.Title>
+                  <Button className='btn-block btn-danger' id="edit" onClick={() => handleEditTask(index, task.description, task.frequency, task.startDate, task.endDate)}>
                     Edit
                   </Button>
-                  <Button className='btn-block btn-danger' onClick={() => handleDeleteTask(index)}>
+                  <Button className='btn-block btn-danger' id="delete" onClick={() => handleDeleteTask(index)}>
                     Delete
                   </Button>
                 </Card.Body>
