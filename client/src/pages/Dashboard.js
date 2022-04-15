@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useQuery } from "@apollo/client";
 import Habit from "../components/Habit";
 import { QUERY_ME } from "../utils/queries";
-
 
 const Dashboard = () => {
   const { loading, data } = useQuery(QUERY_ME);
@@ -12,11 +11,15 @@ const Dashboard = () => {
       <h1 className="dashboard-title">Habit-Forming Activities</h1>
       <h2 className="dashboard-subtext">Shake Up Your Routine</h2>
       <div className="habit-container">
-        {loading
-          ? "loading..."
-          : data.me.habits.map((habit, index) => {
-              return <Habit key={index} index={index} value={habit} />;
-            })}
+        {loading ? (
+          "loading..."
+        ) : data.me.habits?.length > 0 ? (
+          data.me.habits.map((habit, index) => {
+            return <Habit key={index} index={index} value={habit} />;
+          })
+        ) : (
+          <Habit />
+        )}
       </div>
     </div>
   );
