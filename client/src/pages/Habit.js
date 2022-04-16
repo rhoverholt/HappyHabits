@@ -111,7 +111,7 @@ const Habit = () => {
           variables: { habit: habitToSave },
         });
         id = data.me.habits.length;
-        document.location.replace(`/habit/${id}`);
+        document.location.replace(`/dashboard`);
       } catch (e) {
         console.error(e);
       }
