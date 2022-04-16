@@ -147,9 +147,12 @@ const resolvers = {
         //   }
         // });
 
-        ["description", "frequency", "startDate", "endDate"].forEach((field) => {
-          if (input[field]) user.habits[index].tasks[taskIndex][field] = input[field];
-        });
+        ["description", "frequency", "startDate", "endDate"].forEach(
+          (field) => {
+            if (input[field])
+              user.habits[index].tasks[taskIndex][field] = input[field];
+          }
+        );
 
         await user.save();
         return user;
@@ -208,13 +211,15 @@ const resolvers = {
           _id: context.user._id,
         }).select("-password");
 
-        if (user?.habits?.length < index + 1)
-          throw new AuthenticationError("Cannot remove task to invalid habit");
+        // if (user?.habits?.length < index + 1)
+        //   throw new AuthenticationError("Cannot remove task to invalid habit");
 
-        user.habits[index].tasks = user.habits[index]?.tasks?.filter((task,index) => {
-          console.log(index, taskIndex !== index);
-          return taskIndex !== index;
-        });
+        user.habits[index].tasks = user.habits[index]?.tasks?.filter(
+          (task, index) => {
+            console.log(index, taskIndex !== index);
+            return taskIndex !== index;
+          }
+        );
 
         user.save();
         return user;
