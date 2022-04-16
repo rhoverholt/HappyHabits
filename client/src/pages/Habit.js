@@ -112,8 +112,8 @@ const Habit = () => {
         });
 
         id = data.me.habits.length;
-        window.location.href = "/dashboard";
-        // document.location.replace(`/dashboard`);
+        // document.location.replace(`/habit/${id}`);
+        window.location.assign(`/habit/${id}`);
       } catch (e) {
         console.error(e);
       }
