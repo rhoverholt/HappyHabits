@@ -22,6 +22,9 @@ const AppNavbar = () => {
                   <Nav.Link as={Link} to="/habit">
                     Create Habit
                   </Nav.Link>
+                  <Nav.Link as={Link} to="/tips">
+                    Tips
+                  </Nav.Link>
                   
                   <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
                 </>

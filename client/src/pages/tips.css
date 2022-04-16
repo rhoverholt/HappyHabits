@@ -1,0 +1,79 @@
+.Tips {
+        display: flex;
+        
+            background-image: url(../assets/habitEmail.jpg);
+            background-size: contain;
+            height: 100rem;
+            width: 100%;
+           
+            background-repeat: no-repeat;
+            color: var(--color-bg);
+            text-align: right;
+            position:relative;
+
+
+        
+        }
+        
+      
+          .better {
+              display: flex;
+              flex-direction: column;
+            position: absolute;
+            top: 10%;
+            left: 60%;
+            margin-right: 2rem;
+         
+            
+      
+           
+          }
+           
+
+          /* media queries(medium devices) */
+
+@media screen and (max-width: 1024px) {
+    .Tips  {
+        width: var(--container-width-md);
+
+    }
+  
+    .better  {
+
+    }
+
+
+  }
+  
+  /* media queries(small devices) */
+  
+  @media screen and (max-width: 1024px) {
+    .Tips {
+      width: var(--container-width-sm);
+     
+      
+    }
+
+   .hideme {
+       opacity: 0%;
+   }
+
+
+    .better  {
+    
+            top: 4%;
+            margin-top: -4rem;
+           
+            text-overflow: clip;
+            font-size: 1rem;
+            
+            
+
+            }
+
+
+    
+  }
+  
+  
+     
