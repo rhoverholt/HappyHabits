@@ -37,3 +37,7 @@ input, textarea {
 
 
 }
+
+.btn.btn-dark.mb-3 {
+  color: var(--color-bg);
+}

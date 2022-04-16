@@ -9,7 +9,7 @@ const Footer = () => {
     <footer className="footer">
       <div className="madewith">
         {location.pathname !== "/" && (
-          <button className="btn btn-dark mb-3" onClick={() => navigate(-1)}>
+          <button className="btn btn-dark mb-3" id="bottombtn" onClick={() => navigate(-1)}>
             &larr; Go Back
           </button>
         )}
