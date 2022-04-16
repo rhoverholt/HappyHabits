@@ -9,7 +9,7 @@ const Tips = () => {
         <div className="col-12 col-md-10 mb-3 p-3" id="tipstext">
         <div className="better" >
             <h3 className="tips-title">Tips for Building Happy Habits</h3>
-            
+            {/* tips page ready for copy */}
         <ul>
             <li>Start small. Big changes start small.</li>
             <li className="hideme">Replace bad habits with good ones. Don't create a void.</li>

@@ -60,7 +60,7 @@ function App() {
               <Route path="/habit" element={<Habit />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/tips" element={<Tips />} />
-             
+             {/* These are the routes */}
             </Routes>
           </div>
           </div>

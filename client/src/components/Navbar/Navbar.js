@@ -25,7 +25,7 @@ const AppNavbar = () => {
                   <Nav.Link as={Link} to="/tips">
                     Tips
                   </Nav.Link>
-                  
+                  {/* new link for tips */}
                   <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
                 </>
               ) : (
