@@ -5,6 +5,7 @@ export const QUERY_USERS = gql`
     users {
       username
       email
+      notify
       _id
       habits {
         title
@@ -31,6 +32,7 @@ export const QUERY_USER = gql`
   query user($userId: ID!) {
     user(userId: $userId) {
       username
+      notify
       email
       _id
       habits {
@@ -62,6 +64,7 @@ export const QUERY_ME = gql`
     me{
       username
       email
+      notify
       _id
       habits {
         title

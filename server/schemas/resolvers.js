@@ -63,6 +63,18 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
 
+    updateNotify: async (parent, { input }, context) => {
+      console.log("Notifications: ", input);
+      if (context.user) {
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $set: { notify: input } }
+        );
+        return updatedUser;
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
+
     // add a habit to a User
     createHabit: async (parent, { input }, context) => {
       if (context.user) {
@@ -102,6 +114,13 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
 
+    // updateNotify: async(parent, { _id, notify }) => {
+    //   const notify = await User.findOneAndUpdate(
+    //     { _id },
+    //     { }
+    //   )
+    // },
+
     // update a task
     updateTask: async (parent, { index, taskIndex, input }, context) => {
       console.log("Update task called: ", index, taskIndex, input);
@@ -128,9 +147,12 @@ const resolvers = {
         //   }
         // });
 
-        ["description", "frequency", "startDate", "endDate"].forEach((field) => {
-          if (input[field]) user.habits[index].tasks[taskIndex][field] = input[field];
-        });
+        ["description", "frequency", "startDate", "endDate"].forEach(
+          (field) => {
+            if (input[field])
+              user.habits[index].tasks[taskIndex][field] = input[field];
+          }
+        );
 
         await user.save();
         return user;
@@ -189,13 +211,15 @@ const resolvers = {
           _id: context.user._id,
         }).select("-password");
 
-        if (user?.habits?.length < index + 1)
-          throw new AuthenticationError("Cannot remove task to invalid habit");
+        // if (user?.habits?.length < index + 1)
+        //   throw new AuthenticationError("Cannot remove task to invalid habit");
 
-        user.habits[index].tasks = user.habits[index]?.tasks?.filter((task,index) => {
-          console.log(index, taskIndex !== index);
-          return taskIndex !== index;
-        });
+        user.habits[index].tasks = user.habits[index]?.tasks?.filter(
+          (task, index) => {
+            console.log(index, taskIndex !== index);
+            return taskIndex !== index;
+          }
+        );
 
         user.save();
         return user;
