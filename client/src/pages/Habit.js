@@ -3,7 +3,9 @@ import { useQuery, useMutation } from '@apollo/client';
 import { Jumbotron, Container, CardColumns, Card, Button } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import {QUERY_ME} from '../utils/queries';
+
 import {CREATE_HABIT, REMOVE_TASK, CREATE_TASK, UPDATE_HABIT, UPDATE_TASK} from '../utils/mutations';
+import './habit.css';
 
 
 import Auth from "../utils/auth";
@@ -274,7 +276,7 @@ setFormState(
 return (
 <>
 
-<form onSubmit={handleHabitFormSubmit}>
+<form className="habit-form" onSubmit={handleHabitFormSubmit}>
                 <input
                   className="form-input"
                   placeholder="Habit Title"
@@ -285,7 +287,7 @@ return (
                   onChange={handleChange}
                 />
                 <button
-                  className="btn btn-block btn-primary"
+                  className="btn btn-block btn-primary" id="save-habit"
                   style={{ cursor: 'pointer' }}
                   type="submit"
                 >
@@ -354,7 +356,7 @@ return (
                 </div>
  
                 <div id="notesForm" className="Visible" >
-                <form onSubmit={handleHabitFormSubmit}>
+                <form id="notesEntry" onSubmit={handleHabitFormSubmit}>
                 <input
                   className="form-input"
                   placeholder="notes"
@@ -364,7 +366,7 @@ return (
                   onChange={handleChange}
                 />
                 <button
-                  className="btn btn-block btn-primary"
+                  className="btn btn-block btn-primary" id="saveMe"
                   style={{ cursor: 'pointer' }}
                   type="submit"
                 >
@@ -377,12 +379,12 @@ return (
 
 
               <Card key={index} border='dark'>
-                <Card.Body>
-                  <Card.Title>{task.description}</Card.Title>
-                  <Button className='btn-block btn-danger' onClick={() => handleEditTask(index, task.description, task.frequency, task.startDate, task.endDate)}>
+                <Card.Body className="whattocall">
+                  <Card.Title className="card-title" >{task.description}</Card.Title>
+                  <Button className='btn-block btn-danger' id="edit" onClick={() => handleEditTask(index, task.description, task.frequency, task.startDate, task.endDate)}>
                     Edit
                   </Button>
-                  <Button className='btn-block btn-danger' onClick={() => handleDeleteTask(index)}>
+                  <Button className='btn-block btn-danger' id="delete" onClick={() => handleDeleteTask(index)}>
                     Delete
                   </Button>
                 </Card.Body>

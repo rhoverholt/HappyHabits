@@ -1,5 +1,6 @@
 import React from "react";
 import { Bar } from "react-chartjs-2";
+import './chart.css'
 
 const PlotChart = (props) => {
   // let chartRender = null;
@@ -13,7 +14,7 @@ const PlotChart = (props) => {
   // }
 
   return (
-    <div>
+    <div className="chart">
       <Bar data={props.data} options={props.options} redraw={true} />
     </div>
   );

@@ -12,10 +12,10 @@
 :root {
   --color-bg: rgb(11, 26, 11);
   --color-bg-variant: rgb(126, 165, 76);
-  --color-primary: rgb(212, 127, 30);
-  --color-primary-variant: rgb(204, 95, 6);
+  --color-primary: rgb(200, 212, 30);
+  --color-primary-variant: rgb(250, 171, 25);
   --color-white: #fff;
-  --color-light: rgba(255, 255, 255, 0.6);
+  --color-light: rgb(236, 177, 14);
 
   --transition: all 400ms ease;
 
@@ -37,7 +37,7 @@ body {
   background: var(--color-bg);
   color: var(--color-white);
   line-height: 1.7;
-  background-image: url(../src/assets/Home.jpg);
+  /* background-image: url(../src/assets/Home.jpg); */
  background-size: cover;
   background-repeat: no-repeat;
  
@@ -115,7 +115,7 @@ a:hover {
 
 .btn:hover {
   background: var(--color-white);
-  color: var(--color-bg);
+  color: var(--color-primary-variant);
   border-color: transparent;
 }
 

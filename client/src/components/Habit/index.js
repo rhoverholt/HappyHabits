@@ -125,7 +125,7 @@ const Habit = (props) => {
                         return (
                           <label key={dow} className="task-label tl-daily">
                             {dow}
-                            <input
+                            <input className="checkbox"
                               type="checkbox"
                               key={dow}
                               value={date}

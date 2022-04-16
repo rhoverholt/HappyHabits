@@ -1,7 +1,7 @@
 .Homepage {
 display: flex;
 
-    background-image: url(../assets/faceless.jpg);
+    background-image: url(../assets/habit.png);
     background-size: cover;
     height: 100rem;
     width: 100%;
@@ -10,3 +10,25 @@ display: flex;
 
 
 }
+
+/* media queries(medium devices) */
+
+@media screen and (max-width: 1024px) {
+    .Homepage {
+      width: auto;
+      height: auto;
+    }
+  
+  
+  }
+  
+  /* media queries(small devices) */
+  
+  @media screen and (max-width: 1024px) {
+    .Homepage {
+      width: auto;
+      height: auto;
+    }
+  
+   
+  }

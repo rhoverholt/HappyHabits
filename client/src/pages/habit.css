@@ -1,0 +1,76 @@
+.habit-form {
+    margin-left: 6rem;
+    margin-right: 6rem;
+}
+
+#save-habit:hover {
+    color: var(--color-light);
+}
+#save-habit {
+    margin-bottom: 1rem;
+}
+#save-entry:hover {
+    color: var(--color-light);
+}
+
+#newTaskBtn:hover {
+    color: var(--color-light);
+    
+}
+
+#newTaskBtn {
+    margin-left: 6rem;
+    margin-bottom: 1rem;
+    
+}
+
+#addTaskForm {
+    margin-left: 6rem;
+    margin-right: 6rem;
+}
+#taskBtn {
+    margin-bottom: 1rem;
+}
+
+#taskBtn:hover {
+    color: var(--color-light);
+    
+}
+
+#notesEntry {
+    margin-left: 6rem;
+    margin-right: 6rem;
+    margin-bottom: 1rem;
+}
+
+#saveMe:hover {
+    color: var(--color-light);
+}
+
+#delete:hover {
+    color: var(--color-light);
+}
+
+#delete {
+    justify-content: center;
+    margin-right: 1rem;
+}
+
+#edit {
+    margin-left: 5rem;
+    margin-right: 1rem;
+}
+
+#edit:hover {
+    color: var(--color-light);
+}
+
+.card-title {
+    margin-left: 3rem;
+}
+
+.whattocall {
+    display: flex;
+    display: inline;
+    /* justify-content: center; */
+}
