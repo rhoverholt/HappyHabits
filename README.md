@@ -62,20 +62,20 @@ You will need to set up your own .env file to store connection details.  Conside
 
 ## Usage
 First time users will be prompted to sign up and create a Happy Habits account.  Returning users can log in to see their habits.
-![Login/Sign up page]()
+![Login/Sign up page](client/src/assets/login.jpg)
 
 On the dashboard page, users can see their current habits and associated tasks.  Users will be able to mark whether they have completed a task for a given day.  Additionally, users will have their metrics on task completion shown neatly in their dashboard.  If a user wants to create a new Habit, they can click the 'Create Habit' button at the top of the page, or to edit an existing habit they can click on individual habit titles.
-![Dashboard]()
+![Dashboard](client/src/assets/dashboard.jpg)
 
 On the create Habit page, users will be prompted to enter a habit title and can include any notes about the habit.  
-![Create Habit]()
+![Create Habit](client/src/assets/createHabit.jpg)
 
 After saving the habit, the user will be prompted to add tasks to the habit.  If users need to update or delete a task they can do so on the same page.
-![Add Task]()
-![Update Task]()
+![Add Task](client/src/assets/createTask.jpg)
+![Update Task](client/src/assets/addTask.jpg)
 
-Additionally, users will receive email notifications to remind them to log in to Happy Habits to update their tasks.
-![Email Notification]()
+Additionally, users will receive email notifications to remind them to log in to Happy Habits to update their tasks and can checkout some tips for building better habits!
+![Email Notification](client/src/assets/tips.jpg)
 
 
 ## License
