@@ -73,6 +73,7 @@ const typeDefs = gql`
     createTask(index: String!, input: taskInput): User
     updateTask(index: String!, taskIndex: String!, input: taskInput): User
     removeTask(index: String!, taskIndex: Int!): User
+    updateNotify(input: Boolean! ): User
     createTaskInstance(
       hIndex: Int!
       tIndex: Int!
