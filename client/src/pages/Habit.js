@@ -56,14 +56,14 @@ useEffect(() => {
         {habitTitle:userData.habits[id].title,
         notes:userData.habits[id].notes,
         description:``,
-        frequency:``,
+        frequency:`Daily`,
         startDate:``,
         endDate:``,
         taskIndex: ``} :
             {habitTitle:``,
             notes:``,
             description:``,
-            frequency:``,
+            frequency:`Daily`,
             startDate:``,
             endDate:``,
             taskIndex: ``}
@@ -171,7 +171,7 @@ console.log(myTaskIndexStr);
 setFormState(
         {
         description:``,
-        frequency:``,
+        frequency:`Daily`,
         startDate:``,
         endDate:``,
         taskIndex: ``} );
@@ -258,7 +258,7 @@ setFormState(
     setFormState(
       {
       description:``,
-      frequency:``,
+      frequency:`Daily`,
       startDate:``,
       endDate:``,
       taskIndex: ``} );
