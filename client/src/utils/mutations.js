@@ -125,6 +125,14 @@ export const UPDATE_HABIT = gql`
   }
 `;
 
+export const UPDATE_NOTIFY = gql`
+mutation Mutation($input: Boolean!) {
+  updateNotify(input: $input) {
+    notify
+  }
+}
+`;
+
 // create task data for a logged in user
 export const CREATE_TASK = gql`
   mutation createTask($index: String!, $task: taskInput!) {
