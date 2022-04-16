@@ -110,6 +110,7 @@ const Habit = () => {
         const { habit } = await createHabit({
           variables: { habit: habitToSave },
         });
+
         id = data.me.habits.length;
         // document.location.replace(`/habit/${id}`);
         window.location.assign(`/habit/${id}`);
