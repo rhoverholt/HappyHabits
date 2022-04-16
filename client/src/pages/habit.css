@@ -1,6 +1,6 @@
 .habit-form {
-    margin-left: 8rem;
-    margin-right: 8rem;
+    margin-left: 6rem;
+    margin-right: 6rem;
 }
 
 #save-habit:hover {
@@ -19,14 +19,14 @@
 }
 
 #newTaskBtn {
-    margin-left: 8rem;
+    margin-left: 6rem;
     margin-bottom: 1rem;
     
 }
 
 #addTaskForm {
-    margin-left: 8rem;
-    margin-right: 8rem;
+    margin-left: 6rem;
+    margin-right: 6rem;
 }
 #taskBtn {
     margin-bottom: 1rem;
@@ -38,11 +38,39 @@
 }
 
 #notesEntry {
-    margin-left: 8rem;
-    margin-right: 8rem;
+    margin-left: 6rem;
+    margin-right: 6rem;
     margin-bottom: 1rem;
 }
 
 #saveMe:hover {
     color: var(--color-light);
+}
+
+#delete:hover {
+    color: var(--color-light);
+}
+
+#delete {
+    justify-content: center;
+    margin-right: 1rem;
+}
+
+#edit {
+    margin-left: 5rem;
+    margin-right: 1rem;
+}
+
+#edit:hover {
+    color: var(--color-light);
+}
+
+.card-title {
+    margin-left: 3rem;
+}
+
+.whattocall {
+    display: flex;
+    display: inline;
+    /* justify-content: center; */
 }

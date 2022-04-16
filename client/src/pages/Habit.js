@@ -65,7 +65,7 @@ const Habit = () => {
             habitTitle: userData.habits[id].title,
             notes: userData.habits[id].notes,
             description: ``,
-            frequency: ``,
+            frequency: `Daily`,
             startDate: ``,
             endDate: ``,
             taskIndex: ``,
@@ -74,7 +74,7 @@ const Habit = () => {
             habitTitle: ``,
             notes: ``,
             description: ``,
-            frequency: ``,
+            frequency: `Daily`,
             startDate: ``,
             endDate: ``,
             taskIndex: ``,
@@ -171,7 +171,7 @@ const Habit = () => {
 
     setFormState({
       description: ``,
-      frequency: ``,
+      frequency: `Daily`,
       startDate: ``,
       endDate: ``,
       taskIndex: ``,
@@ -252,7 +252,7 @@ const Habit = () => {
 
     setFormState({
       description: ``,
-      frequency: ``,
+      frequency: `Daily`,
       startDate: ``,
       endDate: ``,
       taskIndex: ``,
@@ -373,10 +373,11 @@ const Habit = () => {
       {userData.habits[id]?.tasks.map((task, index) => {
         return (
           <Card key={index} border="dark">
-            <Card.Body>
-              <Card.Title>{task.description}</Card.Title>
+            <Card.Body className="whattocall">
+              <Card.Title className="card-title">{task.description}</Card.Title>
               <Button
                 className="btn-block btn-danger"
+                id="edit"
                 onClick={() =>
                   handleEditTask(
                     index,
@@ -391,6 +392,7 @@ const Habit = () => {
               </Button>
               <Button
                 className="btn-block btn-danger"
+                id="delete"
                 onClick={() => handleDeleteTask(index)}
               >
                 Delete

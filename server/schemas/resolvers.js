@@ -63,6 +63,18 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
 
+    updateNotify: async (parent, { input }, context) => {
+      console.log("Notifications: ", input);
+      if (context.user) {
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $set: { notify: input } }
+        );
+        return updatedUser;
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
+
     // add a habit to a User
     createHabit: async (parent, { input }, context) => {
       if (context.user) {
@@ -101,6 +113,13 @@ const resolvers = {
 
       throw new AuthenticationError("You need to be logged in!");
     },
+
+    // updateNotify: async(parent, { _id, notify }) => {
+    //   const notify = await User.findOneAndUpdate(
+    //     { _id },
+    //     { }
+    //   )
+    // },
 
     // update a task
     updateTask: async (parent, { index, taskIndex, input }, context) => {

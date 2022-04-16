@@ -16,6 +16,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar/Navbar";
 import Habit from "./pages/Habit";
+import Tips from "./pages/Tips";
 
 
 // Construct our main GraphQL API endpoint
@@ -58,6 +59,7 @@ function App() {
               <Route path="/habit/:id" element={<Habit />} />
               <Route path="/habit" element={<Habit />} />
               <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/tips" element={<Tips />} />
              
             </Routes>
           </div>

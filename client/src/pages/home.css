@@ -1,7 +1,7 @@
 .Homepage {
 display: flex;
 
-    background-image: url(../assets/habit.jpg);
+    background-image: url(../assets/habit.png);
     background-size: cover;
     height: 100rem;
     width: 100%;
