@@ -110,8 +110,10 @@ const Habit = () => {
         const { habit } = await createHabit({
           variables: { habit: habitToSave },
         });
+
         id = data.me.habits.length;
-        document.location.replace(`/dashboard`);
+        window.location.href = "/dashboard";
+        // document.location.replace(`/dashboard`);
       } catch (e) {
         console.error(e);
       }
